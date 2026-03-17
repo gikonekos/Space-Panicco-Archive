@@ -10,6 +10,14 @@ documentation, and disk images of the game for historical
 and archival purposes.
 
 ---
+## Screenshots
+
+| Round 1 | Round 2 |
+|--------|--------|
+| ![Round 1](screenshots/panicco_round01.png) | ![Round 2](screenshots/panicco_round02.png) |
+| Neko Project II x64<br>MS-DOS 3.30 | Neko Project 21/W x64<br>MS-DOS 6.20 |
+
+Screenshots showing the game running on two different PC-98 emulator environments.
 
 ## About the Game
 
