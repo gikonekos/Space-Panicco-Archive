@@ -83,7 +83,7 @@ https://www.vector.co.jp/soft/dos/game/se023653.html
 The files included in this repository preserve the original
 distribution archive and floppy disk image for historical purposes.
 
---
+---
 
 ## System Requirements
 
