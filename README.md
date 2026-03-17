@@ -122,6 +122,18 @@ The following environments were tested for this archive:
 | Neko Project II x64 | MS-DOS 3.30 |
 | Neko Project 21/W x64 | MS-DOS 6.20 |
 
+### Disk Image Format
+
+The primary floppy disk image preserved in this archive is:
+
+panic24.hdm
+
+D88 format was also tested, but the available converted image showed
+compatibility problems in some emulators and mounting tools.
+
+For reliability, the HDM image is therefore used as the preserved
+disk image for this archive.
+
 ---
 
 ## Audio System
@@ -201,6 +213,13 @@ Geimu Shokunin
 https://x.com/k2PSyIqxDKciBXA
 
 You may also open an **Issue** in this repository.
+
+---
+
+## Acknowledgements
+
+Some documentation editing and English text polishing
+were assisted by ChatGPT during the archive preparation.
 
 ---
 
