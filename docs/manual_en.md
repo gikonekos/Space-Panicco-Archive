@@ -2,7 +2,7 @@
 (Action Game Version)
 
 Program ............ Geimu Shokunin  
-Music & Graphics ... Moto Kenkichi  
+Music & Graphics ... Motoi Kenkichi  
 
 1994-09-20
 
@@ -254,7 +254,7 @@ Pocket Communication Ver.3   #2357
 Game Design / Graphics / Sound
 
 ```
-BUGSOFT (Moto Kenkichi)
+BUGSOFT (Motoi Kenkichi)
 Tokyo BBS          BUGSOFT
 CAT-NET            CAT23779
 C&C-NET            BASELUCK
