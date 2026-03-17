@@ -71,6 +71,45 @@ docs/
 
 ---
 
+## System Requirements
+
+The game was originally developed for the **NEC PC-9800 series** personal computers.
+
+### Original Hardware
+
+- NEC PC-9801 / PC-9821 series
+- MS-DOS
+- Internal PC speaker (BEEP)
+- Floppy disk drive
+
+FM sound hardware is **not required**, as the game uses the internal speaker.
+
+### Emulator
+
+The game can be played on PC-98 emulators such as:
+
+- Neko Project II
+- Neko Project 21/W
+- T98-Next
+- Anex86
+
+Use the included disk image:
+
+```
+panic24.hdm
+```
+
+### Verified Environments
+
+The following environments were tested for this archive:
+
+| Emulator | DOS Version |
+|--------|--------|
+| Neko Project II x64 | MS-DOS 3.30 |
+| Neko Project 21/W x64 | MS-DOS 6.20 |
+
+---
+
 ## Audio System
 
 The game uses the **PC-98 internal speaker (BEEP)** for music.
