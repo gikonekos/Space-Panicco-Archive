@@ -44,7 +44,7 @@ Program
 **Geimu Shokunin (芸夢職人)**
 
 Music & Graphics  
-**Moto Kenkichi (基 建吉)**
+**Motoi Kenkichi (基 建吉)**
 
 Released  
 **1994-09-20**
@@ -123,6 +123,12 @@ Music data is stored in:
 PANIC.BGM
 ```
 
+Main BGM is "Bottakuri Shouten" (ボッタクリショウテン)
+composed by Kenkichi Motoi on 1994-05-11.
+ 
+Used **PLAY3** is BASIC Extention on the **SHARP PC-E500** Pocket computer.
+https://github.com/gikonekos/PLAY3-Archive
+
 ---
 
 ## Stage Data
@@ -174,7 +180,7 @@ docs/manual_en.md
 
 For questions or historical information about the game:
 
-Moto Kenkichi  
+Motoi Kenkichi  
 https://x.com/qptn/
 
 Geimu Shokunin  
