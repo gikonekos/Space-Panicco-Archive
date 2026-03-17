@@ -49,7 +49,7 @@ Music & Graphics
 Released  
 **1994-09-20**
 
-The game was developed under the name **BUGSOFT**, which served both as a circle name and as Moto Kenkichi's personal handle at the time.
+The game was developed under the name **BUGSOFT**, which served both as a circle name and as Motoi Kenkichi's personal handle at the time.
 
 ---
 
