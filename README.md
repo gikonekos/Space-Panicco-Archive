@@ -72,6 +72,19 @@ docs/
 
 ---
 
+## Original Distribution
+
+The original distribution of **Space Panicco v2.4** was archived from:
+
+Vector software library
+
+https://www.vector.co.jp/soft/dos/game/se023653.html
+
+The files included in this repository preserve the original
+distribution archive and floppy disk image for historical purposes.
+
+--
+
 ## System Requirements
 
 The game was originally developed for the **NEC PC-9800 series** personal computers.
