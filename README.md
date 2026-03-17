@@ -126,7 +126,8 @@ PANIC.BGM
 Main BGM is "Bottakuri Shouten" (ボッタクリショウテン)
 composed by Kenkichi Motoi on 1994-05-11.
  
-Used **PLAY3** is BASIC Extention on the **SHARP PC-E500** Pocket computer.
+The main BGM **"Bottakuri Shouten"** was originally written using
+the **PLAY3 buzzer music driver** for the **SHARP PC-E500** series Pocket computer.
 https://github.com/gikonekos/PLAY3-Archive
 
 ---
