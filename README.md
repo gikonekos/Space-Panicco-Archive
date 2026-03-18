@@ -53,6 +53,20 @@ The game was developed under the name **BUGSOFT**, which served both as a circle
 
 ---
 
+## Distribution History
+
+Space Panicco was originally distributed in 1994 through Japanese
+hobbyist software channels.
+
+The game was first distributed on floppy disks at events such as
+Comiket (Comic Market), packaged with a printed instruction sheet.
+
+Later updates were also distributed through Japanese dial-up BBS
+systems (grassroots bulletin board services), which were a common
+distribution method for PC-98 doujin software during the 1990s.
+
+---
+
 ## Repository Structure
 
 ```
