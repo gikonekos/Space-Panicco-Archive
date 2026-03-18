@@ -27,6 +27,9 @@ Screenshots showing the game running on two different PC-98 emulator environment
 
 Space Panicco is a **platform action game inspired by Space Panic**.
 
+The title is a play on the arcade game *Space Panic*.
+The heroine of the game is named **Panicco (ぱにっ娘)**.
+
 The player controls the heroine **Panicco**, digs holes in platforms,
 and defeats aliens by dropping or burying them.
 
