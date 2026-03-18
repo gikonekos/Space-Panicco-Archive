@@ -5,7 +5,8 @@ Historical archive of the PC-98 action game
 
 Originally released in **1994**.
 
-This repository preserves the original distributed files, documentation, and disk images of the game for historical and archival purposes.
+This repository preserves the original distributed files, documentation,
+and disk images of the game for historical and archival purposes.
 
 ---
 
@@ -24,7 +25,8 @@ Screenshots showing the game running on two different PC-98 emulator environment
 
 Space Panicco is a **platform action game inspired by Space Panic**.
 
-The player controls the heroine **Panicco**, digs holes in platforms, and defeats aliens by dropping or burying them.
+The player controls the heroine **Panicco**, digs holes in platforms,
+and defeats aliens by dropping or burying them.
 
 Unlike the original *Space Panic*, this game introduces additional mechanics:
 
@@ -34,7 +36,8 @@ Unlike the original *Space Panic*, this game introduces additional mechanics:
 - editable stage maps
 - configurable gameplay parameters
 
-These features make Space Panicco a more strategic evolution of the classic digging-platform formula.
+These features make Space Panicco a more strategic evolution of
+the classic digging-platform formula.
 
 ---
 
@@ -49,21 +52,28 @@ Music & Graphics
 Released  
 **1994-09-20**
 
-The game was developed under the name **BUGSOFT**, which served both as a circle name and as Motoi Kenkichi's personal handle at the time.
+The game was developed by the Japanese doujin software circle  
+**BUGSOFT**.
 
 ---
 
 ## Distribution History
 
-Space Panicco was originally distributed in 1994 through Japanese
+Space Panicco was originally distributed in **1994** through Japanese
 hobbyist software channels.
 
 The game was first distributed on floppy disks at events such as
-Comiket (Comic Market), packaged with a printed instruction sheet.
+**Comiket (Comic Market)**, packaged with a printed instruction sheet.
 
-Later updates were also distributed through Japanese dial-up BBS
-systems (grassroots bulletin board services), which were a common
-distribution method for PC-98 doujin software during the 1990s.
+Later versions were distributed online through the **Vector software
+library**, a major Japanese freeware and shareware distribution site.
+
+Vector also produced CD-ROM compilations of its software archive,
+which were distributed to registered authors at the time.
+
+Today the game is preserved here on **GitHub (2026)** as part of a
+historical archive project documenting PC-98 software and Japanese
+doujin game culture.
 
 ---
 
@@ -108,7 +118,8 @@ software in modern emulator environments.
 
 ## System Requirements
 
-The game was originally developed for the **NEC PC-9800 series** personal computers.
+The game was originally developed for the **NEC PC-9800 series**
+personal computers.
 
 ### Original Hardware
 
@@ -117,7 +128,8 @@ The game was originally developed for the **NEC PC-9800 series** personal comput
 - Internal PC speaker (BEEP)
 - Floppy disk drive
 
-FM sound hardware is **not required**, as the game uses the internal speaker.
+FM sound hardware is **not required**, as the game uses the internal
+speaker.
 
 ---
 
@@ -157,7 +169,8 @@ The following environments were tested for this archive:
 
 ## FreeDOS (PC-98)
 
-Space Panicco can also run using **FreeDOS(98)**, a FreeDOS build adapted for the NEC PC-98 architecture.
+Space Panicco can also run using **FreeDOS(98)**,
+a FreeDOS build adapted for the NEC PC-98 architecture.
 
 Information:
 
@@ -167,7 +180,8 @@ Example setup with Neko Project 21/W:
 
 https://simk98.github.io/np21w/freedos98.html
 
-Using FreeDOS(98) allows the game to run without requiring original MS-DOS disks.
+Using FreeDOS(98) allows the game to run without requiring
+original MS-DOS disks.
 
 A bootable floppy disk image containing FreeDOS(98) and Space Panicco
 is included in this repository:
@@ -176,7 +190,7 @@ is included in this repository:
 fd98_2hd_p24.img
 ```
 
-This image automatically starts the game after boot.
+This disk image automatically starts the game after boot.
 
 ---
 
@@ -200,7 +214,9 @@ disk image for this archive.
 
 The game uses the **PC-98 internal speaker (BEEP)** for music.
 
-Music playback uses a C library developed by **BIO_100%**, which produces pseudo-polyphonic sound using rapid arpeggios on the single-channel PC speaker.
+Music playback uses a C library developed by **BIO_100%**, which
+produces pseudo-polyphonic sound using rapid arpeggios on the
+single-channel PC speaker.
 
 Music data is stored in:
 
@@ -208,11 +224,11 @@ Music data is stored in:
 PANIC.BGM
 ```
 
-Main BGM is **"Bottakuri Shouten" (ボッタクリショウテン)**  
-composed by Kenkichi Motoi on **1994-05-11**.
+The main BGM **"Bottakuri Shouten" (ボッタクリショウテン)**  
+was composed by Kenkichi Motoi on **1994-05-11**.
 
-The main BGM was originally written using the **PLAY3 buzzer music driver**
-for the **SHARP PC-E500** series pocket computer.
+This music was originally written using the **PLAY3 buzzer music
+driver** for the **SHARP PC-E500** pocket computer.
 
 https://github.com/gikonekos/PLAY3-Archive
 
@@ -265,6 +281,15 @@ You may also open an **Issue** in this repository.
 
 Some documentation editing and English text polishing
 were assisted by ChatGPT during the archive preparation.
+
+---
+
+## Preservation Note
+
+This repository was created by one of the original authors
+to preserve the game and its materials for historical purposes.
+
+All original files are kept in their original form whenever possible.
 
 ---
 
