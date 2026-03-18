@@ -59,8 +59,9 @@ The game was developed under the name **BUGSOFT**, which served both as a circle
 Space-Panicco-Archive
 
 original/
-    panic24.zip      Original distribution archive
-    panic24.hdm      Floppy disk image
+    panic24.zip          Original distribution archive
+    panic24.hdm          Floppy disk image
+    fd98_2hd_p24.img     Bootable FreeDOS(98) floppy image
 
 extracted/
     Extracted original files from the archive
@@ -68,6 +69,9 @@ extracted/
 docs/
     original_manual.md   Original Japanese documentation
     manual_en.md         English translation of the manual
+
+screenshots/
+    Emulator screenshots
 ```
 
 ---
@@ -82,6 +86,9 @@ https://www.vector.co.jp/soft/dos/game/se023653.html
 
 The files included in this repository preserve the original
 distribution archive and floppy disk image for historical purposes.
+
+Additional disk images may be provided for convenience to help run the
+software in modern emulator environments.
 
 ---
 
@@ -98,7 +105,9 @@ The game was originally developed for the **NEC PC-9800 series** personal comput
 
 FM sound hardware is **not required**, as the game uses the internal speaker.
 
-### Emulator
+---
+
+## Emulator
 
 The game can be played on PC-98 emulators such as:
 
@@ -107,13 +116,21 @@ The game can be played on PC-98 emulators such as:
 - T98-Next
 - Anex86
 
-Use the included disk image:
+Use the included floppy disk image:
 
 ```
 panic24.hdm
 ```
 
-### Verified Environments
+Run the game from DOS:
+
+```
+PANIC
+```
+
+---
+
+## Verified Environments
 
 The following environments were tested for this archive:
 
@@ -122,11 +139,40 @@ The following environments were tested for this archive:
 | Neko Project II x64 | MS-DOS 3.30 |
 | Neko Project 21/W x64 | MS-DOS 6.20 |
 
-### Disk Image Format
+---
+
+## FreeDOS (PC-98)
+
+Space Panicco can also run using **FreeDOS(98)**, a FreeDOS build adapted for the NEC PC-98 architecture.
+
+Information:
+
+https://bauxite.sakura.ne.jp/software/dos/freedos.htm
+
+Example setup with Neko Project 21/W:
+
+https://simk98.github.io/np21w/freedos98.html
+
+Using FreeDOS(98) allows the game to run without requiring original MS-DOS disks.
+
+A bootable floppy disk image containing FreeDOS(98) and Space Panicco
+is included in this repository:
+
+```
+fd98_2hd_p24.img
+```
+
+This image automatically starts the game after boot.
+
+---
+
+## Disk Image Format
 
 The primary floppy disk image preserved in this archive is:
 
+```
 panic24.hdm
+```
 
 D88 format was also tested, but the available converted image showed
 compatibility problems in some emulators and mounting tools.
@@ -148,11 +194,12 @@ Music data is stored in:
 PANIC.BGM
 ```
 
-Main BGM is "Bottakuri Shouten" (ボッタクリショウテン)
-composed by Kenkichi Motoi on 1994-05-11.
- 
-The main BGM **"Bottakuri Shouten"** was originally written using
-the **PLAY3 buzzer music driver** for the **SHARP PC-E500** series Pocket computer.
+Main BGM is **"Bottakuri Shouten" (ボッタクリショウテン)**  
+composed by Kenkichi Motoi on **1994-05-11**.
+
+The main BGM was originally written using the **PLAY3 buzzer music driver**
+for the **SHARP PC-E500** series pocket computer.
+
 https://github.com/gikonekos/PLAY3-Archive
 
 ---
@@ -172,22 +219,6 @@ Map size:
 ```
 
 This design allows stages to be edited manually.
-
----
-
-## Running the Game
-
-Use the included floppy disk image:
-
-```
-panic24.hdm
-```
-
-Run the game from DOS:
-
-```
-PANIC
-```
 
 ---
 
@@ -223,8 +254,11 @@ were assisted by ChatGPT during the archive preparation.
 
 ---
 
-## Preservation Note
+## Disclaimer
 
-This repository was created by one of the original authors to preserve the game and its materials for historical purposes.
+This repository is provided for **historical and archival purposes**.
 
-All original files are kept in their original form whenever possible.
+The software is preserved as originally distributed whenever possible.
+
+No guarantee is made regarding compatibility with modern systems,
+emulators, or DOS environments.
