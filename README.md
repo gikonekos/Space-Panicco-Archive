@@ -5,6 +5,8 @@ Historical archive of the PC-98 action game
 
 Originally released in **1994**.
 
+This repository was created by one of **the original authors**.
+
 This repository preserves the original distributed files, documentation,
 and disk images of the game for historical and archival purposes.
 
