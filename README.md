@@ -68,7 +68,7 @@ Space Panicco was originally distributed in **1994** through Japanese
 hobbyist software channels.
 
 The game was first distributed on floppy disks at events such as
-**Comiket (Comic Market)**, packaged with a a printed instruction sheet.
+**Comiket (Comic Market)**, packaged with a printed instruction sheet.
 
 Later versions were distributed online through the **Vector software
 library**, a major Japanese freeware and shareware distribution site.
@@ -98,10 +98,10 @@ extracted/
     Extracted original files from the archive
 
 docs/
-    original_manual.md
-    manual_en.md
-    Running-the-Game.md
-    Running-the-Game_ja.md
+    original_manual.md      Original Japanese manual
+    manual_en.md            English translation
+    Running-the-Game.md     Detailed instructions (English)
+    Running-the-Game_ja.md  Detailed instructions (Japanese)
 
 screenshots/
     Emulator screenshots
@@ -209,7 +209,7 @@ docs/Running-the-Game_ja.md
 The primary floppy disk image preserved in this archive is:
 
 ```
-panic24.hdm
+original/panic24.hdm
 ```
 
 D88 format was also tested, but the available converted image showed
