@@ -90,6 +90,8 @@ Space-Panicco-Archive
 original/
     panic24.zip          Original distribution archive
     panic24.hdm          Floppy disk image
+
+environment/
     fd98_2hd_p24.img     Bootable FreeDOS(98) floppy image
 
 extracted/
@@ -98,6 +100,7 @@ extracted/
 docs/
     original_manual.md   Original Japanese documentation
     manual_en.md         English translation of the manual
+    Running-the-Game.md  Detailed instructions for running the game
 
 screenshots/
     Emulator screenshots
@@ -138,59 +141,14 @@ speaker.
 
 ---
 
-## Running the Game
+## Emulator
 
-Space Panicco was originally designed for **NEC PC-9801 series computers running MS-DOS**.
-
-Today the game can be run on modern systems using **PC-98 emulators**.
-
-### Emulator
-
-The game works with common PC-98 emulators such as:
+The game can be played on PC-98 emulators such as:
 
 - Neko Project II
 - Neko Project 21/W
 - T98-Next
 - Anex86
-
-### Method 1 — Floppy Disk Image
-
-Use the preserved floppy disk image included in this archive:
-
-```
-panic24.hdm
-```
-
-Mount the disk image in the emulator and start the game from DOS:
-
-```
-PANIC
-```
-
-Executable file:
-
-```
-PANIC.EXE
-```
-
-### Method 2 — FreeDOS Boot Disk
-
-A bootable floppy disk image using **FreeDOS(98)** is also provided:
-
-```
-fd98_2hd_p24.img
-```
-
-This disk image automatically starts **Space Panicco** after boot,
-so no DOS setup is required.
-
-FreeDOS(98) information:
-
-https://bauxite.sakura.ne.jp/software/dos/freedos.htm
-
-Example emulator setup:
-
-https://simk98.github.io/np21w/freedos98.html
 
 ---
 
@@ -205,37 +163,45 @@ The following environments were tested for this archive:
 
 ---
 
-## Controls
+## Running the Game
 
-Movement
+Space Panicco was originally designed for **NEC PC-9801 series computers running MS-DOS**.
 
-```
-8 : Up
-2 : Down
-4 : Left
-6 : Right
-```
+Today the game can be played using a **PC-98 emulator**.
 
-Actions
+The archive includes two ways to run the game.
+
+### Floppy Disk Image
 
 ```
-X   : Dig a hole
-Z   : Fill a hole
-ESC : Pause / Config menu
+original/panic24.hdm
 ```
 
-The numeric keypad keys **2,4,6,8** correspond to the cursor keys.
-
----
-
-## Notes
-
-- The game uses the **PC-98 internal BEEP speaker**.
-- A joystick is supported but not required.
-- Game parameters can be modified using the configuration file:
+Mount the disk image in a PC-98 emulator and start the game from DOS:
 
 ```
-PANIC.DEF
+PANIC
+```
+
+### FreeDOS Boot Disk
+
+```
+environment/fd98_2hd_p24.img
+```
+
+This bootable image automatically starts **Space Panicco**.
+
+Tested environments:
+
+```
+Neko Project II x64   + MS-DOS 3.30
+Neko Project 21/W x64 + MS-DOS 6.20
+```
+
+For detailed instructions, controls, and compatibility notes see:
+
+```
+docs/Running-the-Game.md
 ```
 
 ---
@@ -305,6 +271,7 @@ Original documentation and translation are available in:
 ```
 docs/original_manual.md
 docs/manual_en.md
+docs/Running-the-Game.md
 ```
 
 ---
