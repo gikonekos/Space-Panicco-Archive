@@ -68,7 +68,7 @@ Space Panicco was originally distributed in **1994** through Japanese
 hobbyist software channels.
 
 The game was first distributed on floppy disks at events such as
-**Comiket (Comic Market)**, packaged with a printed instruction sheet.
+**Comiket (Comic Market)**, packaged with a a printed instruction sheet.
 
 Later versions were distributed online through the **Vector software
 library**, a major Japanese freeware and shareware distribution site.
@@ -98,9 +98,10 @@ extracted/
     Extracted original files from the archive
 
 docs/
-    original_manual.md   Original Japanese documentation
-    manual_en.md         English translation of the manual
-    Running-the-Game.md  Detailed instructions for running the game
+    original_manual.md
+    manual_en.md
+    Running-the-Game.md
+    Running-the-Game_ja.md
 
 screenshots/
     Emulator screenshots
@@ -154,8 +155,6 @@ The game can be played on PC-98 emulators such as:
 
 ## Verified Environments
 
-The following environments were tested for this archive:
-
 | Emulator | DOS Version |
 |--------|--------|
 | Neko Project II x64 | MS-DOS 3.30 |
@@ -191,17 +190,16 @@ environment/fd98_2hd_p24.img
 
 This bootable image automatically starts **Space Panicco**.
 
-Tested environments:
-
-```
-Neko Project II x64   + MS-DOS 3.30
-Neko Project 21/W x64 + MS-DOS 6.20
-```
-
 For detailed instructions, controls, and compatibility notes see:
 
 ```
 docs/Running-the-Game.md
+```
+
+Japanese instructions are available here:
+
+```
+docs/Running-the-Game_ja.md
 ```
 
 ---
@@ -260,25 +258,20 @@ Map size:
 13 × 12 blocks
 ```
 
-This design allows stages to be edited manually.
-
 ---
 
 ## Documentation
-
-Original documentation and translation are available in:
 
 ```
 docs/original_manual.md
 docs/manual_en.md
 docs/Running-the-Game.md
+docs/Running-the-Game_ja.md
 ```
 
 ---
 
 ## Contact
-
-For questions or historical information about the game:
 
 Motoi Kenkichi  
 https://x.com/qptn/
