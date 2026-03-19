@@ -82,6 +82,17 @@ doujin game culture.
 
 ---
 
+## Internet Archive
+
+A permanent snapshot of this archive is preserved on Internet Archive:
+
+https://archive.org/details/space-panicco-archive-main
+
+This ensures long-term preservation of the project even if the GitHub
+repository changes in the future.
+
+---
+
 ## Repository Structure
 
 ```
