@@ -20,7 +20,7 @@ These emulators accurately reproduce the PC-98 hardware environment.
 Use the preserved floppy disk image included in this archive:
 
 ```
-panic24.hdm
+original/panic24.hdm
 ```
 
 Mount the disk image in the emulator and start the game from DOS:
@@ -42,7 +42,7 @@ PANIC.EXE
 A bootable floppy disk image using **FreeDOS(98)** is also provided:
 
 ```
-fd98_2hd_p24.img
+environment/fd98_2hd_p24.img
 ```
 
 This disk image automatically starts **Space Panicco** after boot.
