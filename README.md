@@ -27,7 +27,7 @@ Screenshots showing the game running on two different PC-98 emulator environment
 
 Space Panicco is a **platform action game inspired by Space Panic**.
 
-The title is a play on the arcade game *Space Panic*.
+The title is a play on the arcade game *Space Panic*.  
 The heroine of the game is named **Panicco (ぱにっ娘)**.
 
 The player controls the heroine **Panicco**, digs holes in platforms,
@@ -138,26 +138,59 @@ speaker.
 
 ---
 
-## Emulator
+## Running the Game
 
-The game can be played on PC-98 emulators such as:
+Space Panicco was originally designed for **NEC PC-9801 series computers running MS-DOS**.
+
+Today the game can be run on modern systems using **PC-98 emulators**.
+
+### Emulator
+
+The game works with common PC-98 emulators such as:
 
 - Neko Project II
 - Neko Project 21/W
 - T98-Next
 - Anex86
 
-Use the included floppy disk image:
+### Method 1 — Floppy Disk Image
+
+Use the preserved floppy disk image included in this archive:
 
 ```
 panic24.hdm
 ```
 
-Run the game from DOS:
+Mount the disk image in the emulator and start the game from DOS:
 
 ```
 PANIC
 ```
+
+Executable file:
+
+```
+PANIC.EXE
+```
+
+### Method 2 — FreeDOS Boot Disk
+
+A bootable floppy disk image using **FreeDOS(98)** is also provided:
+
+```
+fd98_2hd_p24.img
+```
+
+This disk image automatically starts **Space Panicco** after boot,
+so no DOS setup is required.
+
+FreeDOS(98) information:
+
+https://bauxite.sakura.ne.jp/software/dos/freedos.htm
+
+Example emulator setup:
+
+https://simk98.github.io/np21w/freedos98.html
 
 ---
 
@@ -172,30 +205,38 @@ The following environments were tested for this archive:
 
 ---
 
-## FreeDOS (PC-98)
+## Controls
 
-Space Panicco can also run using **FreeDOS(98)**,
-a FreeDOS build adapted for the NEC PC-98 architecture.
-
-Information:
-
-https://bauxite.sakura.ne.jp/software/dos/freedos.htm
-
-Example setup with Neko Project 21/W:
-
-https://simk98.github.io/np21w/freedos98.html
-
-Using FreeDOS(98) allows the game to run without requiring
-original MS-DOS disks.
-
-A bootable floppy disk image containing FreeDOS(98) and Space Panicco
-is included in this repository:
+Movement
 
 ```
-fd98_2hd_p24.img
+8 : Up
+2 : Down
+4 : Left
+6 : Right
 ```
 
-This disk image automatically starts the game after boot.
+Actions
+
+```
+X   : Dig a hole
+Z   : Fill a hole
+ESC : Pause / Config menu
+```
+
+The numeric keypad keys **2,4,6,8** correspond to the cursor keys.
+
+---
+
+## Notes
+
+- The game uses the **PC-98 internal BEEP speaker**.
+- A joystick is supported but not required.
+- Game parameters can be modified using the configuration file:
+
+```
+PANIC.DEF
+```
 
 ---
 
