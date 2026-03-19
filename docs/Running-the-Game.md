@@ -2,7 +2,7 @@
 
 Space Panicco was originally designed for **NEC PC-9801 series computers running MS-DOS**.
 
-Today the easiest way to run the game is through a **PC-98 emulator**.
+Today the game can be run easily using a **PC-98 emulator**.
 
 ### Recommended Emulator
 
@@ -13,39 +13,72 @@ The game has been tested with the following PC-98 emulators:
 
 These emulators accurately reproduce the PC-98 hardware environment.
 
-### Running the Game (Emulator)
+---
 
-1. Install a PC-98 emulator such as **Neko Project II** or **Neko Project 21/W**.
+### Method 1 — Floppy Disk Image
 
-2. Prepare a DOS environment for the emulator  
-   (for example **MS-DOS** or **FreeDOS**).
+Use the preserved floppy disk image included in this archive:
 
-3. Copy the Space Panicco files into a directory on the virtual hard disk.
+```
+panic24.hdm
+```
 
-4. Start the game from DOS:
+Mount the disk image in the emulator and start the game from DOS:
 
-    PANIC
+```
+PANIC
+```
 
-The executable file is:
+Executable file:
 
-    PANIC.EXE
+```
+PANIC.EXE
+```
+
+---
+
+### Method 2 — FreeDOS Boot Disk
+
+A bootable floppy disk image using **FreeDOS(98)** is also provided:
+
+```
+fd98_2hd_p24.img
+```
+
+This disk image automatically starts **Space Panicco** after boot.
+
+FreeDOS(98) information:
+
+https://bauxite.sakura.ne.jp/software/dos/freedos.htm
+
+Example emulator setup:
+
+https://simk98.github.io/np21w/freedos98.html
+
+---
 
 ### Controls
 
 Movement
 
-    8 : Up
-    2 : Down
-    4 : Left
-    6 : Right
+```
+8 : Up
+2 : Down
+4 : Left
+6 : Right
+```
 
 Actions
 
-    X : Dig a hole
-    Z : Fill a hole
-    ESC : Pause / Config menu
+```
+X : Dig a hole
+Z : Fill a hole
+ESC : Pause / Config menu
+```
 
 The numeric keypad keys **2,4,6,8** correspond to the cursor keys.
+
+---
 
 ### Notes
 
@@ -53,15 +86,19 @@ The numeric keypad keys **2,4,6,8** correspond to the cursor keys.
 - A joystick is supported but not required.
 - Game parameters can be modified using the configuration file:
 
-    PANIC.DEF
+```
+PANIC.DEF
+```
+
+---
 
 ### Compatibility
 
 Tested environments:
 
-    Neko Project II x64   + MS-DOS 3.30
-    Neko Project 21/W x64 + MS-DOS 6.20
+```
+Neko Project II x64   + MS-DOS 3.30
+Neko Project 21/W x64 + MS-DOS 6.20
+```
 
-Future test:
-
-    FreeDOS (to be tested)
+The game also runs using **FreeDOS(98)** with the provided boot disk image.
