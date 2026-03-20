@@ -62,20 +62,27 @@ The game was developed by the Japanese doujin software circle
 
 ## Third-Party Components
 
-This program includes or was built with the following third-party software components.
+This program appears to have been built with several third-party components,
+as indicated by strings found in the original binary.
 
 ### Compiler
-- Borland Turbo C  
+* Borland Turbo C  
   Copyright (c) 1987–1988 Borland International
 
 ### BGM Library
-- BGM Library ver1.12  
-  Copyright (c) 1989–1993 Fumitake Yodo / STUDIO FEMY  
-  (Timer-interrupt driven PC speaker music driver)
+* BGM Library ver1.12  
+  Copyright (c) 1989–1993 Fumitake Yodo (淀文武) / STUDIO FEMY
 
 ### Utility Library
-- master.lib Version 0.21  
-  Copyright (c) 1993 Akihiko Koizuka, Kazumi
+* master.lib Version 0.21  
+  Copyright (c) 1993 Akihiko Koizuka (戀塚昭彦), Kazumi
+
+---
+
+These components are preserved as part of the original software environment.  
+For details of the investigation, see:
+
+analysis/licensing-investigation-en.md
 
 ---
 
