@@ -61,12 +61,27 @@ Released
 日本の同人ソフトサークル  
 **BUGSOFT** により制作されました。
 
-## サードパーティ・関連要素
+## サードパーティコンポーネント
 
-本プロジェクトには以下の関連があります：
+本プログラムには、以下のサードパーティ製ソフトウェアが使用されている、またはそれらを用いてビルドされています。
 
-- BIO_100%
-  - 使用ライブラリの詳細は現在調査中です
+### コンパイラ
+- Borland Turbo C  
+  Copyright (c) 1987–1988 Borland International
+
+### BGMライブラリ
+- BGM Library ver1.12  
+  Copyright (c) 1989–1993 Fumitake Yodo / STUDIO FEMY  
+  （タイマ割り込み駆動のPCスピーカ音源ドライバ）
+
+### ユーティリティライブラリ
+- master.lib Version 0.21  
+  Copyright (c) 1993 Akihiko Koizuka, Kazumi
+
+---
+
+これらの情報は、オリジナル実行ファイル中の文字列および関連資料に基づいて特定されています。  
+各権利はそれぞれの著作者に帰属します。
 
 ---
 
