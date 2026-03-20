@@ -250,7 +250,6 @@ disk image for this archive.
 
 ## Audio System
 
-### Audio System
 
 This program uses the **internal PC-9801 buzzer** for sound output.
 
@@ -258,7 +257,11 @@ Music playback may involve components related to **BIO_100%**.
 
 Details are currently under investigation, and the system produces pseudo-polyphonic sound through software-based techniques.
 
+### Related resources (context)
 
+- https://github.com/koizuka/master.lib  
+  A comprehensive PC-98 MS-DOS library (1993–1995) for graphics, sound, and I/O.  
+  This project is not directly related to Space Panicco, but is provided as a reference for typical development practices of the era.
 
 Music data is stored in:
 
