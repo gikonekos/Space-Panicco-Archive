@@ -60,6 +60,14 @@ Released
 The game was developed by the Japanese doujin software circle  
 **BUGSOFT**.
 
+## Third-party components
+
+This project references or is related to:
+
+- Bio_100%
+  - Historical Japanese PC software library group
+  - Exact components used are currently under investigation
+
 ---
 
 ## Distribution History
