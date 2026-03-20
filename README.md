@@ -250,14 +250,15 @@ disk image for this archive.
 
 ## Audio System
 
-The game uses the **PC-98 internal speaker (BEEP)** for music.
+### Audio System
+
+This program uses the **internal PC-9801 buzzer** for sound output.
 
 Music playback may involve components related to **BIO_100%**.
 
-Details are currently under investigation.
+Details are currently under investigation, and the system produces pseudo-polyphonic sound through software-based techniques.
 
-Which produces pseudo-polyphonic sound using rapid arpeggios on the
-single-channel PC speaker.
+
 
 Music data is stored in:
 
