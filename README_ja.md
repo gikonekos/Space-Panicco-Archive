@@ -64,20 +64,29 @@ Released
 
 ## サードパーティコンポーネント
 
-本プログラムには、以下のサードパーティ製ソフトウェアが使用されている、またはそれらを用いてビルドされています。
+本プログラムは、オリジナルバイナリ中の文字列情報から判断すると、複数のサードパーティコンポーネントを用いて構築されていると考えられます。
 
 ### コンパイラ
+
 - Borland Turbo C  
   Copyright (c) 1987–1988 Borland International
 
 ### BGMライブラリ
+
 - BGM Library ver1.12  
-  Copyright (c) 1989–1993 Fumitake Yodo / STUDIO FEMY  
-  （タイマ割り込み駆動のPCスピーカ音源ドライバ）
+  Copyright (c) 1989–1993 Fumitake Yodo (淀文武) / STUDIO FEMY
 
 ### ユーティリティライブラリ
+
 - master.lib Version 0.21  
-  Copyright (c) 1993 Akihiko Koizuka, Kazumi
+  Copyright (c) 1993 Akihiko Koizuka (戀塚昭彦), Kazumi
+
+---
+
+これらのコンポーネントは、当時のソフトウェア環境の一部として保存されています。  
+調査の詳細については以下を参照してください：
+
+[analysis/licensing-investigation-ja.md](./analysis/licensing-investigation-ja.md)
 
 ---
 
