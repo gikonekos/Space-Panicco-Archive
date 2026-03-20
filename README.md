@@ -87,21 +87,15 @@ All rights belong to their respective authors.
 
 ## Distribution History
 
-Space Panicco was originally distributed in **1994** through Japanese
-hobbyist software channels.
+This work was released in **1994** through Japanese hobbyist software distribution channels.
 
-The game was first distributed on floppy disks at events such as
-**Comiket (Comic Market)**, packaged with a printed instruction sheet.
+It was initially distributed via **bulletin board systems (BBS)** on Japanese PC communication networks.
 
-Later versions were distributed online through the **Vector software
-library**, a major Japanese freeware and shareware distribution site.
+It was also distributed at events such as **Comic Market (Comiket)**, where it was provided on floppy disks together with a simple printed manual.
 
-Vector also produced CD-ROM compilations of its software archive,
-which were distributed to registered authors at the time.
+Later, it became available through online distribution, including the **Vector Software Library**.
 
-Today the game is preserved here on **GitHub (2026)** as part of a
-historical archive project documenting PC-98 software and Japanese
-doujin game culture.
+Today, it is preserved and published on **GitHub (since 2026)** as part of a historical archive project of PC-98 doujin games.
 
 ---
 
