@@ -242,8 +242,11 @@ disk image for this archive.
 
 The game uses the **PC-98 internal speaker (BEEP)** for music.
 
-Music playback uses a C library developed by **BIO_100%**, which
-produces pseudo-polyphonic sound using rapid arpeggios on the
+Music playback may involve components related to **BIO_100%**.
+
+Details are currently under investigation.
+
+Which produces pseudo-polyphonic sound using rapid arpeggios on the
 single-channel PC speaker.
 
 Music data is stored in:
