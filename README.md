@@ -60,12 +60,28 @@ Released
 The game was developed by the Japanese doujin software circle  
 **BUGSOFT**.
 
-## Third-party components
+## Third-Party Components
 
-This project references or is related to:
+This program includes or was built with the following third-party software components.
 
-- Bio_100%
-  - Exact components used are currently under investigation
+### Compiler
+- Borland Turbo C  
+  Copyright (c) 1987–1988 Borland International
+
+### BGM Library
+- BGM Library ver1.12  
+  Copyright (c) 1989–1993 Fumitake Yodo / STUDIO FEMY  
+  (Timer-interrupt driven PC speaker music driver)
+
+### Utility Library
+- master.lib Version 0.21  
+  Copyright (c) 1993 Akihiko Koizuka, Kazumi
+
+---
+
+The above components are identified based on strings found in the original executable
+and related documentation.  
+All rights belong to their respective authors.
 
 ---
 
