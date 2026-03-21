@@ -27,153 +27,87 @@ Screenshots showing the game running on two different PC-98 emulator environment
 
 Space Panicco is a **platform action game inspired by Space Panic**.
 
-The title is a play on the arcade game *Space Panic*.  
-The heroine of the game is named **Panicco (ぱにっ娘)**.
-
-The player controls the heroine **Panicco**, digs holes in platforms,
-and defeats aliens by dropping or burying them.
-
-Unlike the original *Space Panic*, this game introduces additional mechanics:
-
-- enemies require different falling heights to defeat
-- unbreakable floors allow **bury-kill strategies**
-- chain drops and enemy collisions
-- editable stage maps
-- configurable gameplay parameters
-
-These features make Space Panicco a more strategic evolution of
-the classic digging-platform formula.
+The player must dig holes, trap enemies, and clear each round while avoiding attacks.
+The game was developed for the **NEC PC-9801 series** and runs under **MS-DOS**.
 
 ---
 
 ## Game Credits
 
-Program  
-**Geimu Shokunin (芸夢職人)**
+- Planning, graphics, music: **基 建吉**
+- Programming: **芸夢 職人**
 
-Music & Graphics  
-**Motoi Kenkichi (基 建吉)**
-
-Released  
-**1994-09-20**
-
-The game was developed by the Japanese doujin software circle  
-**BUGSOFT**.
+---
 
 ## Third-Party Components
 
-This program appears to have been built with several third-party components,
-as indicated by strings found in the original binary.
+This program uses or was built with the following third-party software.
 
 ### Compiler
-* Borland Turbo C  
+- **Borland Turbo C**  
   Copyright (c) 1987–1988 Borland International
 
 ### BGM Library
-* BGM Library ver1.12  
-  Copyright (c) 1989–1993 Fumitake Yodo (淀文武) / STUDIO FEMY
+- **BGM Library ver1.12**  
+  Copyright (c) 1989–1993 Fumitake Yodo / STUDIO FEMY
 
 ### Utility Library
-* master.lib Version 0.21  
-  Copyright (c) 1993 Akihiko Koizuka (戀塚昭彦), Kazumi
+- **master.lib Version 0.21**  
+  Copyright (c) 1993 Akihiko Koizuka, Kazumi
 
----
-
-These components are preserved as part of the original software environment.  
-For details of the investigation, see:
-
-analysis/licensing-investigation-en.md
-
----
-
-The above components are identified based on strings found in the original executable
-and related documentation.  
-All rights belong to their respective authors.
+All rights to third-party components belong to their respective copyright holders.
 
 ---
 
 ## Distribution History
 
-This work was released in **1994** through Japanese hobbyist software distribution channels.
+This game was originally released in **1994** as Japanese freeware for PC-9801 DOS.
 
-It was initially distributed via **bulletin board systems (BBS)** on Japanese PC communication networks.
-
-It was also distributed at events such as **Comic Market (Comiket)**, where it was provided on floppy disks together with a simple printed manual.
-
-Later, it became available through online distribution, including the **Vector Software Library**.
-
-Today, it is preserved and published on **GitHub (since 2026)** as part of a historical archive project of PC-98 doujin games.
+The archived materials in this repository preserve that historical release and related documents.
 
 ---
 
 ## Internet Archive
 
-A permanent snapshot of this archive is preserved on Internet Archive:
+A preserved copy is also available at:
 
-https://archive.org/details/space-panicco-archive-main
-
-This ensures long-term preservation of the project even if the GitHub
-repository changes in the future.
+- [Internet Archive](https://archive.org/details/space-panicco)
 
 ---
 
 ## Repository Structure
 
-```
-Space-Panicco-Archive
-
-original/
-    panic24.zip          Original distribution archive
-    panic24.hdm          Floppy disk image
-
-environment/
-    fd98_2hd_p24.img     Bootable FreeDOS(98) floppy image
-
-extracted/
-    Extracted original files from the archive
-
-docs/
-    original_manual.md      Original Japanese manual
-    manual_en.md            English translation
-    Running-the-Game.md     Detailed instructions (English)
-    Running-the-Game_ja.md  Detailed instructions (Japanese)
-
-screenshots/
-    Emulator screenshots
-```
+- `original/` — original distributed archive files and disk images
+- `extracted/` — extracted contents from the original archives
+- `docs/` — documentation, manuals, and related notes
+- `screenshots/` — screenshots of the game
+- `environment/` — emulator and execution environment notes
+- `analysis/` — preservation-oriented analysis and reverse-engineering notes
 
 ---
 
 ## Original Distribution
 
-The original distribution of **Space Panicco v2.4** was archived from:
+The `original/` directory preserves the original distributed files of **Space Panicco**.
 
-Vector software library
+These files are kept for historical and archival purposes.
 
-https://www.vector.co.jp/soft/dos/game/se023653.html
+Contents include:
 
-The files included in this repository preserve the original
-distribution archive and floppy disk image for historical purposes.
+- original archive packages
+- disk images
 
-Additional disk images may be provided for convenience to help run the
-software in modern emulator environments.
+Extracted files are stored separately in the `extracted/` directory.
+
+Any analysis, modifications, or reorganized materials should be stored outside this directory.
 
 ---
 
 ## System Requirements
 
-The game was originally developed for the **NEC PC-9800 series**
-personal computers.
-
-### Original Hardware
-
-- NEC PC-9801 / PC-9821 series
+- NEC PC-9801 series compatible environment
 - MS-DOS
-- Internal PC speaker (BEEP)
-- Floppy disk drive
-
-FM sound hardware is **not required**, as the game uses the internal
-speaker.
+- floppy disk image or extracted files from the original package
 
 ---
 
@@ -183,169 +117,93 @@ The game can be played on PC-98 emulators such as:
 
 - Neko Project II
 - Neko Project 21/W
-- T98-Next
-- Anex86
 
 ---
 
 ## Verified Environments
 
-| Emulator | DOS Version |
-|--------|--------|
-| Neko Project II x64 | MS-DOS 3.30 |
-| Neko Project 21/W x64 | MS-DOS 6.20 |
+Confirmed working environments include:
+
+- **Neko Project II x64** with **MS-DOS 3.30**
+- **Neko Project 21/W x64** with **MS-DOS 6.20**
 
 ---
 
 ## Running the Game
 
-Space Panicco was originally designed for **NEC PC-9801 series computers running MS-DOS**.
+1. Prepare a PC-98 emulator environment.
+2. Boot MS-DOS.
+3. Mount the disk image or open the extracted game files.
+4. Run the main executable.
 
-Today the game can be played using a **PC-98 emulator**.
+For details, see:
 
-The archive includes two ways to run the game.
-
-### Floppy Disk Image
-
-```
-original/panic24.hdm
-```
-
-Mount the disk image in a PC-98 emulator and start the game from DOS:
-
-```
-PANIC
-```
-
-### FreeDOS Boot Disk
-
-```
-environment/fd98_2hd_p24.img
-```
-
-This bootable image automatically starts **Space Panicco**.
-
-For detailed instructions, controls, and compatibility notes see:
-
-```
-docs/Running-the-Game.md
-```
-
-Japanese instructions are available here:
-
-```
-docs/Running-the-Game_ja.md
-```
+- [Running the Game](docs/Running-the-Game.md)
 
 ---
 
 ## Disk Image Format
 
-The primary floppy disk image preserved in this archive is:
-
-```
-original/panic24.hdm
-```
-
-D88 format was also tested, but the available converted image showed
-compatibility problems in some emulators and mounting tools.
-
-For reliability, the HDM image is therefore used as the preserved
-disk image for this archive.
+The archived floppy disk image is preserved in its original format for historical purposes.
 
 ---
 
 ## Audio System
 
-
-This program uses the **internal PC-9801 buzzer** for sound output.
-
-Music playback may involve components related to **BIO_100%**.
-
-Details are currently under investigation, and the system produces pseudo-polyphonic sound through software-based techniques.
-
-### Related resources (context)
-
-- https://github.com/koizuka/master.lib  
-  A comprehensive PC-98 MS-DOS library (1993–1995) for graphics, sound, and I/O.  
-  This project is not directly related to Space Panicco, but is provided as a reference for typical development practices of the era.
-
-Music data is stored in:
-
-```
-PANIC.BGM
-```
-
-The main BGM **"Bottakuri Shouten" (ボッタクリショウテン)**  
-was composed by Kenkichi Motoi on **1994-05-11**.
-
-This music was originally written using the **PLAY3 buzzer music
-driver** for the **SHARP PC-E500** pocket computer.
-
-https://github.com/gikonekos/PLAY3-Archive
+The game uses PC-98 compatible sound hardware and external libraries for music playback.
 
 ---
 
 ## Stage Data
 
-Stage layouts are stored as text-based map files:
-
-```
-VMAP001.DAT – VMAP032.DAT
-```
-
-Map size:
-
-```
-13 × 12 blocks
-```
+Stage graphics and gameplay data are preserved as part of the original game resources.
 
 ---
 
 ## Documentation
 
-```
-docs/original_manual.md
-docs/manual_en.md
-docs/Running-the-Game.md
-docs/Running-the-Game_ja.md
-```
+Additional documentation is available in the `docs/` directory.
+
+This includes:
+
+- original manual text
+- Japanese notes
+- English notes
+- running instructions
+
+---
+
+## Rights
+
+This repository is a historical archive of the 1994 freeware game *Space Panicco*.
+
+The original game and original distributed materials remain copyrighted by their original rightsholders.
+Publication on GitHub does not place the original game under an open-source license.
+
+Personal play, preservation, sharing, and non-commercial use are welcome.
+Commercial exploitation or repackaging for profit is not the intended purpose of this archive.
+
+This repository may also include analysis and reverse-engineering notes for preservation and research.
+Those materials do not change the copyright status of the original game.
+
+See [RIGHTS.md](RIGHTS.md) and [RIGHTS_ja.md](RIGHTS_ja.md) for details.
 
 ---
 
 ## Contact
 
-Motoi Kenkichi  
-https://x.com/qptn/
-
-Geimu Shokunin  
-https://x.com/k2PSyIqxDKciBXA
-
-You may also open an **Issue** in this repository.
-
----
-
-## Acknowledgements
-
-Some documentation editing and English text polishing
-were assisted by ChatGPT during the archive preparation.
-
----
-
-## Preservation Note
-
-This repository was created by one of the original authors
-to preserve the game and its materials for historical purposes.
-
-All original files are kept in their original form whenever possible.
+For historical information related to this archive, see the repository owner profile and related archive notes.
 
 ---
 
 ## Disclaimer
 
-This repository is provided for **historical and archival purposes**.
+This repository is provided for historical and archival purposes.
 
-The software is preserved as originally distributed whenever possible.
+No guarantee is made regarding compatibility with modern systems, emulators, or DOS environments.
 
-No guarantee is made regarding compatibility with modern systems,
-emulators, or DOS environments.
+---
+
+## Acknowledgements
+
+Thanks to everyone who helped preserve and document historical Japanese PC software.
