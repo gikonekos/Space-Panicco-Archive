@@ -40,6 +40,24 @@ This repository may refer to or document third-party components identified from 
 All rights to such third-party components remain with their respective copyright holders.
 This repository does not grant any new rights for those third-party works.
 
+## Bundled DOS environment
+
+Some execution and test environments in this repository may include a FreeDOS(98)-based DOS environment for PC-98 use.
+
+The bundled boot screen shows notices for components such as the FreeDOS(98) kernel, FreeDOS XMS-Driver for 80286, and FreeCOM (PC-98 / DBCS build).
+
+At least some bundled boot components display the following kinds of notices:
+
+- Copyright 1995–2022 Pasquale J. Villani and The FreeDOS Project
+- Copyright 2001–2022 FreeDOS(98) porting project
+- GNU General Public License, version 2 or later
+- Absolutely no warranty
+
+These components are not original works of this repository and remain under their own license terms and their respective copyright holders.
+
+For a repository-specific summary, see:
+- [docs/FREEDOS98-LICENSE-NOTES.md](docs/FREEDOS98-LICENSE-NOTES.md)
+
 ## Redistribution and commercial use
 
 Personal preservation, sharing, citation, and non-commercial reference are welcome.
