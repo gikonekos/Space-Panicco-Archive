@@ -2,58 +2,62 @@
 
 Space Panicco was originally designed for **NEC PC-9801 series computers running MS-DOS**.
 
-Today the game can be run easily using a **PC-98 emulator**.
+Today the game can be run using a **PC-98 emulator** with either the preserved original disk image or the bundled FreeDOS(98)-based boot disk.
 
-### Recommended Emulator
+### Recommended emulators
 
 The game has been tested with the following PC-98 emulators:
 
 - Neko Project II
 - Neko Project 21/W
 
-These emulators accurately reproduce the PC-98 hardware environment.
+### Verified environments
+
+Tested environments include:
+
+- **Neko Project II x64** + **MS-DOS 3.30**
+- **Neko Project 21/W x64** + **MS-DOS 6.20**
+- **Neko Project II x64** + bundled **FreeDOS(98)-based boot disk**
 
 ---
 
-### Method 1 — Floppy Disk Image
+### Method 1 — Original floppy disk image
 
 Use the preserved floppy disk image included in this archive:
 
-```
+```text
 original/panic24.hdm
 ```
 
-Mount the disk image in the emulator and start the game from DOS:
-
-```
-PANIC
-```
+Mount the disk image in the emulator and start the game from DOS.
 
 Executable file:
 
-```
+```text
 PANIC.EXE
 ```
 
 ---
 
-### Method 2 — FreeDOS Boot Disk
+### Method 2 — Bundled FreeDOS(98)-based boot disk
 
-A bootable floppy disk image using **FreeDOS(98)** is also provided:
+A bootable floppy disk image using a **FreeDOS(98)-based DOS environment** is also provided:
 
-```
+```text
 environment/fd98_2hd_p24.img
 ```
 
-This disk image automatically starts **Space Panicco** after boot.
+This disk image is intended to help run the game more easily on modern PC-98 emulators.
 
-FreeDOS(98) information:
+The boot environment displays notices for components such as:
 
-https://bauxite.sakura.ne.jp/software/dos/freedos.htm
+- FreeDOS(98) kernel
+- FreeDOS XMS-Driver for 80286
+- FreeCOM ver 0.85a_DBCS (PC-98)
 
-Example emulator setup:
+For license-related notes on the bundled environment, see:
 
-https://simk98.github.io/np21w/freedos98.html
+- [FREEDOS98-LICENSE-NOTES.md](FREEDOS98-LICENSE-NOTES.md)
 
 ---
 
@@ -61,7 +65,7 @@ https://simk98.github.io/np21w/freedos98.html
 
 Movement
 
-```
+```text
 8 : Up
 2 : Down
 4 : Left
@@ -70,13 +74,13 @@ Movement
 
 Actions
 
-```
-X : Dig a hole
-Z : Fill a hole
+```text
+X   : Dig a hole
+Z   : Fill a hole
 ESC : Pause / Config menu
 ```
 
-The numeric keypad keys **2,4,6,8** correspond to the cursor keys.
+The numeric keypad keys **2, 4, 6, 8** correspond to the cursor keys.
 
 ---
 
@@ -84,21 +88,17 @@ The numeric keypad keys **2,4,6,8** correspond to the cursor keys.
 
 - The game uses the **PC-98 internal BEEP speaker**.
 - A joystick is supported but not required.
-- Game parameters can be modified using the configuration file:
+- Game parameters can be modified using:
 
-```
+```text
 PANIC.DEF
 ```
 
+- For local testing, the bundled boot environment may be adjusted to show a message after `PANIC.EXE` exits. Such convenience edits are not part of the original game itself.
+
 ---
 
-### Compatibility
+### Disclaimer
 
-Tested environments:
-
-```
-Neko Project II x64   + MS-DOS 3.30
-Neko Project 21/W x64 + MS-DOS 6.20
-```
-
-The game also runs using **FreeDOS(98)** with the provided boot disk image.
+This repository is published for preservation and research purposes.
+No guarantee is made regarding compatibility with every emulator or DOS environment.
