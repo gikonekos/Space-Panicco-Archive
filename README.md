@@ -21,6 +21,11 @@ disk images, and related execution environments of the game for historical and a
 
 Screenshots showing the game running on two different PC-98 emulator environments.
 
+## Gameplay video
+
+YouTube:
+https://youtu.be/C4Pq5myM1MM?si=tiAHmLRVQ0kYtJf0
+
 ---
 
 ## About the Game
