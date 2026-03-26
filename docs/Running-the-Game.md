@@ -37,6 +37,24 @@ Executable file:
 PANIC.EXE
 ```
 
+## About Joystick (Gamepad) Support
+
+This game also supports joystick input.
+
+In local testing, there were cases where the gamepad was recognized by Neko Project II,
+but joystick input was disabled in the configuration file.
+
+In that case, check the Neko Project II configuration file `np21.ini` and make sure it contains:
+
+    Joystick=true
+
+If it is set to `Joystick=false`, change it to `true`
+and restart Neko Project II.
+
+Depending on the environment, gamepad button assignment information
+may also be stored in the configuration file.
+However, in most cases, simply confirming that `Joystick=true` is enabled is sufficient.
+
 ---
 
 ### Method 2 — Bundled FreeDOS(98)-based boot disk
