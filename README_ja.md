@@ -21,6 +21,11 @@ PC-98用アクションゲーム
 
 2種類の PC-98 エミュレータ環境で動作させた画面です。
 
+## 実プレイ動画
+
+YouTube:
+https://youtu.be/C4Pq5myM1MM?si=tiAHmLRVQ0kYtJf0
+
 ---
 
 ## ゲーム概要
