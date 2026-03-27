@@ -24,7 +24,7 @@ Screenshots showing the game running on two different PC-98 emulator environment
 ## Gameplay videos
 
 YouTube:
-https://youtu.be/C4Pq5myM1MM?si=tiAHmLRVQ0kYtJf0
+https://youtu.be/8eCXOkeMTiQ?si=NoKIfhCUnl9IO7mv
 
 My verification videos.
 
