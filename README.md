@@ -21,10 +21,20 @@ disk images, and related execution environments of the game for historical and a
 
 Screenshots showing the game running on two different PC-98 emulator environments.
 
-## Gameplay video
+## Gameplay videos
 
 YouTube:
 https://youtu.be/C4Pq5myM1MM?si=tiAHmLRVQ0kYtJf0
+
+My verification videos.
+
+Part 1:
+https://youtu.be/C4Pq5myM1MM?si=iI2zo26VY3TZ-VxH
+
+Part 2:
+https://youtu.be/358hQeHvXBA?si=HKnguAuyYuJ1Zfxx
+
+Part 2 includes DEF file editing, continuation play from Round 20, and confirmation that Round 32 is the final round.
 
 ---
 
@@ -134,6 +144,120 @@ Contents include:
 Extracted files are stored separately in the `extracted/` directory.
 
 Any analysis, modifications, or reorganized materials should be stored outside this directory.
+
+---
+
+## System Requirements
+
+- NEC PC-9801 series compatible environment
+- MS-DOS or a compatible PC-98 DOS environment
+- floppy disk image or extracted files from the original package
+
+---
+
+## Emulator
+
+The game can be played on PC-98 emulators such as:
+
+- Neko Project II
+- Neko Project 21/W
+
+---
+
+## Verified Environments
+
+Confirmed working environments include:
+
+- **Neko Project II x64** with **MS-DOS 3.30**
+- **Neko Project 21/W x64** with **MS-DOS 6.20**
+- **Neko Project II x64** with the bundled **FreeDOS(98)-based boot disk**
+
+---
+
+## Running the Game
+
+1. Prepare a PC-98 emulator environment.
+2. Boot either a preserved DOS image or the bundled FreeDOS(98)-based boot disk.
+3. Mount the disk image or open the extracted game files.
+4. Run the main executable.
+
+For details, see:
+
+- [Running the Game](docs/Running-the-Game.md)
+- [Running the Game (Japanese)](docs/Running-the-Game_ja.md)
+
+---
+
+## Disk Image Format
+
+The archived floppy disk image is preserved in its original format for historical purposes.
+
+Additional convenience images may be included to help run the game in modern emulator environments.
+
+---
+
+## Audio System
+
+The game uses the PC-98 internal speaker (BEEP) for sound during normal gameplay.
+
+Third-party libraries are used for music-related functionality in the original software environment.
+
+---
+
+## Stage Data
+
+Stage graphics and gameplay data are preserved as part of the original game resources.
+
+---
+
+## Documentation
+
+Additional documentation is available in the `docs/` directory.
+
+This includes:
+
+- original manual text
+- Japanese notes
+- English notes
+- running instructions
+- FreeDOS(98) license notes
+
+---
+
+## Rights
+
+This repository is a historical archive of the 1994 freeware game *Space Panicco*.
+
+The original game and original distributed materials remain copyrighted by their original rightsholders.
+Publication on GitHub does not place the original game under an open-source license.
+
+Personal play, preservation, sharing, and non-commercial use are welcome.
+Commercial exploitation or repackaging for profit is not the intended purpose of this archive.
+
+This repository may also include analysis and reverse-engineering notes for preservation and research.
+Those materials do not change the copyright status of the original game.
+
+See [RIGHTS.md](RIGHTS.md) and [RIGHTS_ja.md](RIGHTS_ja.md) for details.
+
+---
+
+## Contact
+
+For historical information related to this archive, see the repository owner profile and related archive notes.
+
+---
+
+## Disclaimer
+
+This repository is provided for historical and archival purposes.
+
+No guarantee is made regarding compatibility with modern systems, emulators, DOS environments, or bundled convenience boot images.
+
+---
+
+## Acknowledgements
+
+Thanks to everyone who helped preserve and document historical Japanese PC software.
 
 ---
 
