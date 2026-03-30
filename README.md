@@ -36,6 +36,10 @@ https://youtu.be/358hQeHvXBA?si=HKnguAuyYuJ1Zfxx
 
 Part 2 includes DEF file editing, continuation play from Round 20, and confirmation that Round 32 is the final round.
 
+Space Panicco Map Editor / Stage Data Work Log  
+Live work log showing the browser-based map editor and stage data editing process.  
+https://www.youtube.com/live/grgZ0_BMUdI?si=731Cmi7v9VpSJQHv
+
 ---
 
 ## Tools
