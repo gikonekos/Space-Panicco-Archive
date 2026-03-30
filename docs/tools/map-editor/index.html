@@ -137,10 +137,18 @@
     #stats .stat-val  { color:var(--text); }
     #stats .stat-warn { color:#ff8844; font-weight:bold; }
     #stats hr { border:none; border-top:1px solid #111144; margin:3px 0; }
-    /* 警告 */
-    #warnings { margin-top:10px; padding:7px 10px; background:#2a0a00; border:1px solid #cc4400; font-size:11px; color:#ffaa66; display:none; line-height:1.8; }
-    #warnings.visible { display:block; }
-    #warnings .warn-title { color:#ff6622; font-weight:bold; letter-spacing:1px; margin-bottom:3px; }
+    /* 警告バナー: ツールバー直下・全幅・常に視界に入る */
+    #warnings {
+      display:none; margin-bottom:10px;
+      padding:8px 14px; background:#2a0800;
+      border-left:4px solid #ff5500; border-bottom:1px solid #cc4400;
+      font-size:12px; color:#ffbb77; line-height:1.9;
+    }
+    #warnings.visible { display:flex; align-items:flex-start; gap:10px; }
+    #warnings .warn-icon { font-size:18px; flex-shrink:0; line-height:1.4; }
+    #warnings .warn-body { flex:1; }
+    #warnings .warn-title { color:#ff7733; font-weight:bold; letter-spacing:1px; margin-bottom:2px; font-size:11px; }
+    #warnings .warn-item  { color:#ffcc88; font-size:12px; }
     /* ステータス */
     #statusbar { margin-top:10px; font-size:11px; color:#aabbdd; letter-spacing:1px; border-top:1px solid #1a1a55; padding-top:5px; }
     #encoding-note { margin-top:8px; font-size:10px; color:#7788aa; line-height:1.6; }
@@ -152,7 +160,7 @@
 
 <div id="header">
   <h1>SPACE PANICCO</h1>
-  <span class="subtitle">VMAP EDITOR v1.1 &mdash; 1994 &copy;BUGSOFT</span>
+  <span class="subtitle">VMAP EDITOR v1.2 &mdash; 1994 &copy;BUGSOFT</span>
 </div>
 
 <div id="toolbar">
@@ -164,30 +172,33 @@
 
   <!-- ファイル読み込み（現在面に上書き） -->
   <label class="btn" style="cursor:pointer;" title="現在の面にVMAPファイルを読み込む">
-    &#128194; 読み込み
+    &#128194; Load
     <input type="file" id="file-input" accept=".DAT,.dat" style="display:none">
   </label>
 
   <!-- 保存（現在面） -->
-  <button class="btn" id="btn-save">&#128190; 保存</button>
+  <button class="btn" id="btn-save">&#128190; Save</button>
 
   <!-- コピー -->
   <div id="copy-wrap">
-    <button class="btn" id="btn-copy">&#128203; →</button>
+    <button class="btn" id="btn-copy">&#128203; Copy to</button>
     <input type="number" id="copy-dest" min="1" max="999" value="2" title="コピー先の面番号（1〜999）">
-    <span style="font-size:11px;color:var(--text-dim);">にコピー</span>
+    
   </div>
 
   <!-- クリア -->
-  <button class="btn danger" id="btn-clear">&#128465; クリア</button>
+  <button class="btn danger" id="btn-clear">&#128465; Clear</button>
 
   <span id="file-status"></span>
 </div>
 
+<!-- 警告バナー: 常にツールバー直下・グリッド上部に表示 -->
+<div id="warnings"></div>
+
 <!-- メインエリア -->
 <div id="main">
   <div id="grid-area">
-    <div id="grid-label">MAP GRID &nbsp; 13 &times; 12</div>
+    <div id="grid-label">MAP GRID &nbsp; 13 &times; 12 &nbsp; (col &times; row)</div>
     <div id="col-index"></div>
     <div id="grid-wrapper">
       <div id="row-index"></div>
@@ -199,16 +210,14 @@
     <div id="palette"></div>
   </div>
   <div id="info-area">
-    <h2>MAP INFO</h2>
+    <h2>MAP INFO / STATS</h2>
     <div id="stats"></div>
-    <div id="warnings"></div>
   </div>
 </div>
 
-<div id="statusbar">準備完了</div>
+<div id="statusbar">Ready — load a VMAP file or select a round to edit.</div>
 <div id="encoding-note">
-  ※ 読み込み: TextDecoder('shift-jis') でCP932対応。&nbsp;
-  保存: バイナリ出力（Uint8Array）、半角カタカナはCP932バイト値（ｱ=0xB1/ｲ=0xB2/ｳ=0xB3）で直接書き出し。DOS EOF(0x1A)付き。
+  Encoding: read via TextDecoder('shift-jis'). Save: binary Uint8Array output; half-width katakana (ｱ=0xB1 / ｲ=0xB2 / ｳ=0xB3) written as raw CP932 bytes. DOS EOF (0x1A) appended.
 </div>
 
 <script>
@@ -220,18 +229,18 @@ const ROWS = 12;
 const TOTAL_ROUNDS = 999;
 
 const SYMBOLS = [
-  { key:'space', sym:' ',  label:'(SP)  道',           cssClass:'space', desc:'ROAD'   },
-  { key:'1',     sym:'1',  label:'1     ブロック',      cssClass:'1',     desc:'BLOCK'  },
-  { key:'2',     sym:'2',  label:'2     床',            cssClass:'2',     desc:'FLOOR'  },
-  { key:'7',     sym:'7',  label:'7     穴',            cssClass:'7',     desc:'HOLE'   },
-  { key:'H',     sym:'H',  label:'H     はしご',        cssClass:'H',     desc:'LADDER' },
-  { key:'M',     sym:'M',  label:'M     ぱにっ娘',      cssClass:'M',     desc:'PLAYER' },
-  { key:'A',     sym:'A',  label:'A     SLIMER',        cssClass:'A',     desc:'ENEMY'  },
-  { key:'B',     sym:'B',  label:'B     EBYRINS',       cssClass:'B',     desc:'ENEMY'  },
-  { key:'C',     sym:'C',  label:'C     ZAUROID',       cssClass:'C',     desc:'ENEMY'  },
-  { key:'fa',    sym:'ｱ',  label:'ｱ     SLIMER（落下）', cssClass:'fa',   desc:'FALL'   },
-  { key:'fi',    sym:'ｲ',  label:'ｲ     EBYRINS（落下）',cssClass:'fi',  desc:'FALL'   },
-  { key:'fu',    sym:'ｳ',  label:'ｳ     ZAUROID（落下）',cssClass:'fu',  desc:'FALL'   },
+  { key:'space', sym:' ',  label:'(SP) Road',         cssClass:'space', desc:'道'      },
+  { key:'1',     sym:'1',  label:'1   Block',          cssClass:'1',     desc:'ブロック' },
+  { key:'2',     sym:'2',  label:'2   Floor',          cssClass:'2',     desc:'床'      },
+  { key:'7',     sym:'7',  label:'7   Hole',           cssClass:'7',     desc:'穴'      },
+  { key:'H',     sym:'H',  label:'H   Ladder',         cssClass:'H',     desc:'はしご'  },
+  { key:'M',     sym:'M',  label:'M   PANICCO',        cssClass:'M',     desc:'ぱにっ娘' },
+  { key:'A',     sym:'A',  label:'A   SLIMER',         cssClass:'A',     desc:'enemy'   },
+  { key:'B',     sym:'B',  label:'B   EBYRINS',        cssClass:'B',     desc:'enemy'   },
+  { key:'C',     sym:'C',  label:'C   ZAUROID',        cssClass:'C',     desc:'enemy'   },
+  { key:'fa',    sym:'ｱ',  label:'ｱ   SLIMER (fall)',  cssClass:'fa',    desc:'落下'    },
+  { key:'fi',    sym:'ｲ',  label:'ｲ   EBYRINS (fall)', cssClass:'fi',   desc:'落下'    },
+  { key:'fu',    sym:'ｳ',  label:'ｳ   ZAUROID (fall)', cssClass:'fu',   desc:'落下'    },
 ];
 
 const CHAR_TO_KEY = {};
@@ -314,7 +323,7 @@ function switchRound(newIndex) {
   document.getElementById('copy-dest').value = Math.min(currentRound + 2, TOTAL_ROUNDS);
   refreshGrid();
   updateStats();
-  setStatus(`ROUND ${String(currentRound+1).padStart(3,'0')} を表示中`);
+  setStatus(`Viewing ROUND ${String(currentRound+1).padStart(3,'0')}`);
 }
 
 // ============================================================
@@ -446,8 +455,8 @@ document.getElementById('file-input').addEventListener('change', function(e) {
     const warnings = parseVmapFile(new Uint8Array(ev.target.result), currentRound);
     // ファイル名から面番号を読み取って更新
     allMaps[currentRound].filename = file.name;
-    document.getElementById('file-status').textContent = `← ${file.name} 読み込み済み`;
-    if (warnings.length > 0) showWarning('読み込み警告:\n' + warnings.join('\n'));
+    document.getElementById('file-status').textContent = `← ${file.name} loaded`;
+    if (warnings.length > 0) showWarning('Load warnings:\n' + warnings.join('\n'));
     else clearWarnings();
     refreshGrid();
     updateStats();
@@ -460,7 +469,7 @@ document.getElementById('file-input').addEventListener('change', function(e) {
 function parseVmapFile(bytes, targetRound) {
   let text;
   try { text = new TextDecoder('shift-jis').decode(bytes); }
-  catch (err) { setStatus('エラー：CP932デコード失敗'); return []; }
+  catch (err) { setStatus('Error: Failed to decode CP932 file.'); return []; }
 
   const lines = text.replace(/\x1a/g,'').replace(/\r\n/g,'\n').replace(/\r/g,'\n')
     .split('\n').filter(l => l.length > 0).slice(0, ROWS);
@@ -482,7 +491,7 @@ function parseVmapFile(bytes, targetRound) {
     for (let c = 0; c < COLS; c++) {
       const ch = mapBody[c];
       newGrid[r][c] = (ch in CHAR_TO_KEY) ? CHAR_TO_KEY[ch] : 'space';
-      if (!(ch in CHAR_TO_KEY)) parseWarnings.push(`行${r}列${c}：未知文字 '${ch}'`);
+      if (!(ch in CHAR_TO_KEY)) parseWarnings.push(`Row ${r} Col ${c}: unknown character '${ch}'`);
     }
   }
   map.grid = newGrid;
@@ -500,7 +509,7 @@ function makeEmptyGrid() {
 
 document.getElementById('btn-save').addEventListener('click', () => {
   const warns = validateMap(currentRound);
-  if (warns.length > 0) showWarning('保存警告（続行します）:\n' + warns.join('\n'));
+  if (warns.length > 0) showWarning('Save warnings (file saved anyway):\n' + warns.join('\n'));
   else clearWarnings();
 
   const bytes = buildOutputBytes(currentRound);
@@ -512,7 +521,7 @@ document.getElementById('btn-save').addEventListener('click', () => {
   a.href = url; a.download = fname; a.click();
   URL.revokeObjectURL(url);
 
-  setStatus(`保存完了：${fname}（${bytes.length} bytes、EOF 0x1A付き）`);
+  setStatus(`Saved: ${fname} (${bytes.length} bytes, EOF 0x1A appended)`);
 });
 
 function buildOutputBytes(roundIndex) {
@@ -546,10 +555,10 @@ document.getElementById('btn-copy').addEventListener('click', () => {
   const src  = currentRound;
   const destVal = parseInt(document.getElementById('copy-dest').value);
   if (isNaN(destVal) || destVal < 1 || destVal > TOTAL_ROUNDS) {
-    setStatus('コピー先の面番号が不正です（1〜999）'); return;
+    setStatus('Invalid copy destination. Enter 1–999.'); return;
   }
   const dest = destVal - 1;  // 0-based
-  if (src === dest) { setStatus('コピー元とコピー先が同じ面です'); return; }
+  if (src === dest) { setStatus('Copy source and destination are the same.'); return; }
 
   const srcMap  = allMaps[src];
   const destMap = allMaps[dest];
@@ -559,10 +568,10 @@ document.getElementById('btn-copy').addEventListener('click', () => {
   // コメントはコピー先の元のコメントを維持（行番号が違うため）
   // → 上書きせず元のコメントをそのまま使う
 
-  setStatus(`ROUND ${String(src+1).padStart(3,'0')} → ROUND ${String(dest+1).padStart(3,'0')} にコピーしました`);
+  setStatus(`Copied ROUND ${String(src+1).padStart(3,'0')} → ROUND ${String(dest+1).padStart(3,'0')}.`);
 
   // コピー先に移動するか聞く
-  if (confirm(`ROUND ${String(dest+1).padStart(3,'0')} に移動しますか？`)) {
+  if (confirm(`Move to ROUND ${String(dest+1).padStart(3,'0')}?`)) {
     switchRound(dest);
   }
 });
@@ -572,11 +581,11 @@ document.getElementById('btn-copy').addEventListener('click', () => {
 // ============================================================
 
 document.getElementById('btn-clear').addEventListener('click', () => {
-  if (!confirm(`ROUND ${String(currentRound+1).padStart(3,'0')} をクリアしますか？`)) return;
+  if (!confirm(`Clear ROUND ${String(currentRound+1).padStart(3,'0')}? This cannot be undone.`)) return;
   allMaps[currentRound].grid = makeEmptyGrid();
   refreshGrid();
   clearWarnings();
-  setStatus(`ROUND ${String(currentRound+1).padStart(3,'0')} をクリアしました`);
+  setStatus(`ROUND ${String(currentRound+1).padStart(3,'0')} cleared.`);
 });
 
 // ============================================================
@@ -594,9 +603,9 @@ function validateMap(roundIndex) {
       if (k === 'M') mCount++;
       if (enemyKeys.has(k)) enemyCount++;
     }
-  if (mCount === 0) warns.push('⚠ ぱにっ娘 (M) が配置されていません');
-  else if (mCount > 1) warns.push(`⚠ ぱにっ娘 (M) が ${mCount} 個あります（1個にしてください）`);
-  if (enemyCount > 16) warns.push(`⚠ 敵の合計が ${enemyCount} 体です（制限: 最大16体）`);
+  if (mCount === 0) warns.push('PANICCO (M) is not placed on the map.');
+  else if (mCount > 1) warns.push(`PANICCO (M) appears ${mCount} times — only 1 allowed.`);
+  if (enemyCount > 16) warns.push(`Enemy count is ${enemyCount} — maximum is 16.`);
   return warns;
 }
 
@@ -617,21 +626,21 @@ function updateStats() {
   const eOk = enemyTotal <= 16;
 
   document.getElementById('stats').innerHTML = `
-    <div>M ぱにっ娘 : <span class="${mOk?'stat-val':'stat-warn'}">${counts['M']}</span> / 1</div>
-    <div>敵 合計　 : <span class="${eOk?'stat-val':'stat-warn'}">${enemyTotal}</span> / 16</div>
+    <div>M PANICCO&nbsp;&nbsp;: <span class="${mOk?'stat-val':'stat-warn'}">${counts['M']}</span> / 1</div>
+    <div>Enemies&nbsp;&nbsp;&nbsp;: <span class="${eOk?'stat-val':'stat-warn'}">${enemyTotal}</span> / 16</div>
     <hr>
-    <div>A SLIMER  : <span class="stat-val">${counts['A']}</span></div>
-    <div>B EBYRINS : <span class="stat-val">${counts['B']}</span></div>
-    <div>C ZAUROID : <span class="stat-val">${counts['C']}</span></div>
-    <div>ｱ SL落下  : <span class="stat-val">${counts['fa']}</span></div>
-    <div>ｲ EB落下  : <span class="stat-val">${counts['fi']}</span></div>
-    <div>ｳ ZA落下  : <span class="stat-val">${counts['fu']}</span></div>
+    <div>A SLIMER&nbsp;&nbsp;: <span class="stat-val">${counts['A']}</span></div>
+    <div>B EBYRINS&nbsp;: <span class="stat-val">${counts['B']}</span></div>
+    <div>C ZAUROID&nbsp;: <span class="stat-val">${counts['C']}</span></div>
+    <div>ｱ SL fall&nbsp;: <span class="stat-val">${counts['fa']}</span></div>
+    <div>ｲ EB fall&nbsp;: <span class="stat-val">${counts['fi']}</span></div>
+    <div>ｳ ZA fall&nbsp;: <span class="stat-val">${counts['fu']}</span></div>
     <hr>
-    <div>1 ブロック: <span class="stat-val">${counts['1']}</span></div>
-    <div>2 床　　 : <span class="stat-val">${counts['2']}</span></div>
-    <div>7 穴　　 : <span class="stat-val">${counts['7']}</span></div>
-    <div>H はしご : <span class="stat-val">${counts['H']}</span></div>
-    <div>　 道　　 : <span class="stat-val">${counts['space']}</span></div>
+    <div>1 Block&nbsp;&nbsp;&nbsp;: <span class="stat-val">${counts['1']}</span></div>
+    <div>2 Floor&nbsp;&nbsp;&nbsp;: <span class="stat-val">${counts['2']}</span></div>
+    <div>7 Hole&nbsp;&nbsp;&nbsp;&nbsp;: <span class="stat-val">${counts['7']}</span></div>
+    <div>H Ladder&nbsp;&nbsp;: <span class="stat-val">${counts['H']}</span></div>
+    <div>&nbsp; Road&nbsp;&nbsp;&nbsp;&nbsp;: <span class="stat-val">${counts['space']}</span></div>
   `;
 
   const warns = validateMap(currentRound);
@@ -648,8 +657,13 @@ function setStatus(msg) { document.getElementById('statusbar').textContent = msg
 function showWarning(msg) {
   const el = document.getElementById('warnings');
   el.classList.add('visible');
-  el.innerHTML = '<div class="warn-title">&#9888; WARNING</div>'
-    + msg.split('\n').map(l => `<div>${l}</div>`).join('');
+  const items = msg.split('\n').filter(l => l.trim());
+  el.innerHTML =
+    '<div class="warn-icon">&#9888;</div>' +
+    '<div class="warn-body">' +
+      '<div class="warn-title">WARNING</div>' +
+      items.map(l => `<div class="warn-item">${l}</div>`).join('') +
+    '</div>';
 }
 function clearWarnings() {
   const el = document.getElementById('warnings');
