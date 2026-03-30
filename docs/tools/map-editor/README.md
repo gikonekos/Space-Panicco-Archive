@@ -1,201 +1,199 @@
 # Space Panicco — VMAP Editor
 
-**すぺーす ぱにっ娘 (1994, NEC PC-9801 DOS)** 用の、ローカル動作マップエディタです。
+A browser-based map editor for **Space Panicco / すぺーす ぱにっ娘** (1994, NEC PC-9801 DOS).
 
 ---
 
-## 概要
+## Overview
 
-`index.html` 単体で動作するブラウザベースの面エディタです。  
-外部ライブラリ不要。ローカルでダブルクリックして開くだけで使えます。
+A self-contained editor that runs from a single `index.html` file.  
+No installation or server required — just open it in a browser.
 
-- ROUND 001〜032 の全面データを内蔵（033〜999 は空面として利用可能）
-- 13×12 グリッドを色分け表示・編集
-- VMAP\*\*\*.DAT 形式で保存（DOS EOF 付き、CP932 互換）
+- All 32 original maps (ROUND 001–032) are built in; ROUND 033–999 are available as blank maps
+- 13×12 grid with color-coded symbol display and editing
+- Saves as VMAP\*\*\*.DAT (DOS EOF appended, CP932-compatible output)
 
 ---
 
-## ファイル
+## Files
 
-| ファイル | 内容 |
+| File | Description |
 |---|---|
-| `index.html` | エディタ本体（これ1つで完結） |
+| `index.html` | The editor — everything in one file |
 
 ---
 
-## 動作環境
+## Requirements
 
-- **PC のモダンブラウザ（Chrome / Edge / Firefox）で動作確認済み**
-- ローカルファイルをそのまま開いて使用可能
-- サーバー不要、インストール不要
-- **タブレット・スマートフォン（タッチ操作）には未対応です**
-
----
-
-## 使い方
-
-### 起動
-
-`index.html` をブラウザで開く（ダブルクリックで OK）。
-
-起動時から ROUND 001〜032 の全面データが読み込まれた状態になります。  
-ROUND 033〜999 は空面として利用できます。
+- **Modern desktop browser (Chrome / Edge / Firefox) — verified working**
+- Open the file locally; no server needed
+- **Touch input (iPad / smartphones) is not supported** — use a mouse on a PC
 
 ---
 
-### 面の切り替え
+## How to Use
 
-ツールバー左の **ROUND 入力欄** に面番号（1〜999）を直接入力します。
+### Launch
 
-- 入力後に **Enter キー** を押すか、フォーカスを外すと切り替わります
-- 編集内容は他の面を見ている間もメモリ上に保持されます
-- 切り替えても編集内容は失われません
+Open `index.html` in your browser (double-click is fine).
+
+All 32 built-in maps load immediately. ROUND 033–999 start as empty maps.
 
 ---
 
-### 編集
+### Switching Rounds
 
-1. 右側の **SYMBOL PALETTE** から記号をクリックして選択
-2. グリッドのセルをクリック、またはドラッグして記号を配置
+Type a round number (1–999) into the **ROUND** input field in the toolbar.
 
-道（スペース）は消しゴム代わりに使えます。
+- Press **Enter** or click away to switch
+- Edits are kept in memory while browsing other rounds
+- Unsaved changes are lost when the browser is closed
 
-#### 使用できる記号
+---
 
-| 記号 | 意味 | 色 |
+### Editing
+
+1. Click a symbol in the **SYMBOL PALETTE** to select it
+2. Click or drag on the grid to place it
+
+Selecting **Road (SP)** acts as an eraser.
+
+#### Symbols
+
+| Symbol | Meaning | Color |
 |---|---|---|
-| (SP) | 道 | 暗い青 |
-| `1` | ブロック | 青＋黄チェック |
-| `2` | 床 | 青紫 |
-| `7` | 穴 | 黒＋赤枠 |
-| `H` | はしご | 黒地＋黄縞 |
-| `M` | ぱにっ娘（プレイヤー） | 紫 |
-| `A` | SLIMER | 青紫 |
-| `B` | EBYRINS | 赤茶 |
-| `C` | ZAUROID | 緑 |
-| `ｱ` | SLIMER（落下配置） | 濃い青紫 |
-| `ｲ` | EBYRINS（落下配置） | 濃い赤茶 |
-| `ｳ` | ZAUROID（落下配置） | 濃い緑 |
+| (SP) | Road | Dark blue |
+| `1` | Block | Blue + yellow crosshatch |
+| `2` | Floor | Blue-purple |
+| `7` | Hole | Black + red border |
+| `H` | Ladder | Black + yellow stripes |
+| `M` | PANICCO (player) | Purple |
+| `A` | SLIMER | Blue-purple |
+| `B` | EBYRINS | Red-brown |
+| `C` | ZAUROID | Green |
+| `ｱ` | SLIMER (fall placement) | Deep blue-purple |
+| `ｲ` | EBYRINS (fall placement) | Deep red-brown |
+| `ｳ` | ZAUROID (fall placement) | Deep green |
+
+**Fall placement** means the enemy starts in mid-air and falls at the beginning of the round.
 
 ---
 
-### 面のコピー
+### Copying a Round
 
-「**📋 →**」ボタンとその右の入力欄を使います。
+Use the **📋 Copy to** button and the input field next to it.
 
-1. コピーしたい面を ROUND 入力欄で選ぶ
-2. コピー先の面番号を右の入力欄に入力する（1〜999）
-3. 「📋 →」ボタンを押す
-4. コピー先へ移動するか確認ダイアログが表示されます
+1. Navigate to the round you want to copy
+2. Enter the destination round number (1–999) in the field next to the button
+3. Click **📋 Copy to**
+4. A dialog asks whether to move to the destination round
 
-> **用途例：** 既存の面をベースに新しい面を作るとき、033 面以降にコピーしてから編集します。
-
----
-
-### ファイルの読み込み
-
-「**📂 読み込み**」ボタンで、手元の VMAP\*\*\*.DAT ファイルを  
-**現在選択中の面に上書き読み込み**できます。
-
-- CP932（Shift-JIS）形式のファイルを正しく読み込みます
-- 半角カタカナ（ｱ / ｲ / ｳ）対応
-- 読み込み後にファイル名がツールバーに表示されます
+> **Typical use:** Copy an existing map to ROUND 033 or higher, then edit it as a new level.
 
 ---
 
-### 保存
+### Loading a File
 
-「**💾 保存**」ボタンで、現在表示中の面を VMAP\*\*\*.DAT としてダウンロードします。
+Click **📂 Load** to load a VMAP\*\*\*.DAT file from disk into the currently selected round.
 
-- ファイル名は現在の ROUND 番号に応じて `VMAP001.DAT` 〜 `VMAP999.DAT` で自動設定
-- 外部ファイルを読み込んだ場合は、そのファイル名で保存されます
-- ファイル末尾に DOS EOF (`0x1A`) を付与します
-- 改行コードは CR+LF（DOS 形式）で出力します
-
-> ブラウザのダウンロードフォルダに保存されます。  
-> 元のゲームフォルダに上書きしてご使用ください。
+- Reads CP932 (Shift-JIS) encoding correctly
+- Half-width katakana (ｱ / ｲ / ｳ) supported
+- The loaded filename is shown in the toolbar
 
 ---
 
-### クリア
+### Saving
 
-「**🗑 クリア**」ボタンで、現在の面を全て道（スペース）に戻します。  
-確認ダイアログが表示されます。行番号コメントは維持されます。
+Click **💾 Save** to download the current round as a VMAP\*\*\*.DAT file.
+
+- Filename is set automatically based on the round number: `VMAP001.DAT` – `VMAP999.DAT`
+- If you loaded a file, its original filename is used
+- DOS EOF (`0x1A`) is appended to the file
+- Line endings are CR+LF (DOS format)
+
+> The file is saved to your browser's download folder.  
+> Copy it to your game directory to replace the original.
 
 ---
 
-### バリデーション（自動警告）
+### Clear
 
-以下の条件に該当する場合、MAP INFO パネルに警告が表示されます。  
-警告があっても保存は続行できます。
+Click **🗑 Clear** to reset the current round to all Road (empty) cells.  
+A confirmation dialog appears. Row comments are preserved.
 
-| 条件 | 警告内容 |
+---
+
+### Validation Warnings
+
+Warnings appear in a banner directly below the toolbar.  
+Saving proceeds even if warnings are present.
+
+| Condition | Warning |
 |---|---|
-| `M` が 0 個 | ぱにっ娘が配置されていません |
-| `M` が 2 個以上 | ぱにっ娘が複数あります |
-| 敵（A/B/C/ｱ/ｲ/ｳ）の合計が 17 体以上 | 敵数の制限（16体）を超えています |
+| No `M` on the map | PANICCO is not placed |
+| More than one `M` | Multiple PANICCO instances |
+| Enemies (A/B/C/ｱ/ｲ/ｳ) total > 16 | Enemy count exceeds the limit of 16 |
 
 ---
 
-## ゲーム仕様メモ
+## Game Reference
 
-### VMAP ファイル仕様
+### VMAP File Format
 
 ```
-行数  : 12行（固定）
-列数  : 13文字（固定）
-形式  : [13文字の本体] [スペース]; [行番号] CR LF
-末尾  : DOS EOF (0x1A)
-文字コード: CP932（Shift-JIS 系）
+Rows    : 12 (fixed)
+Columns : 13 characters (fixed)
+Format  : [13-char map body] [space]; [row number] CR LF
+EOF     : DOS EOF byte (0x1A)
+Encoding: CP932 (Shift-JIS compatible)
 ```
 
-### 行の例
+### Example Rows
 
 ```
  H   M   H  ; 10
 2222222222222 ; 11
 ```
 
-### 敵の倒し方（ゲーム内）
+### How to Defeat Enemies
 
-| 敵 | 必要落下階数 |
+| Enemy | Minimum fall floors |
 |---|---|
-| SLIMER (A / ｱ) | 1 階以上 |
-| EBYRINS (B / ｲ) | 2 階以上 |
-| ZAUROID (C / ｳ) | 3 階以上 |
+| SLIMER (A / ｱ) | 1 or more |
+| EBYRINS (B / ｲ) | 2 or more |
+| ZAUROID (C / ｳ) | 3 or more |
 
-連鎖落下・衝突・埋め殺しは段数に関係なく倒せます。
+Chain falls, collisions, and burial kills work regardless of fall distance.
 
-### 得点
+### Scoring
 
-| 敵 | 得点 |
+| Enemy | Score |
 |---|---|
-| SLIMER | 100 × 落とした段数 pts |
-| EBYRINS | 200 × 落とした段数 pts |
-| ZAUROID | 300 × 落とした段数 pts |
+| SLIMER | 100 × floors fallen pts |
+| EBYRINS | 200 × floors fallen pts |
+| ZAUROID | 300 × floors fallen pts |
 
 ---
 
-## 既知の制限事項
+## Known Limitations
 
-- **保存先はダウンロードフォルダ**になります。ブラウザの仕様上、直接上書き保存はできません
-- **タッチ操作（iPad / スマートフォン）には未対応**です。PC のマウス操作でご使用ください
-- **ｱ / ｲ / ｳ** 以外の CP932 固有文字（全角文字など）の保存には非対応です（ゲーム内では使用されていません）
-- **Undo / Redo** は未実装です
-- ブラウザを閉じると編集内容は失われます（保存してからお使いください）
-- PANIC.DEF の `scene max` でゲーム側の面数上限を変更できます（初期値: 32）
-
----
-
-## 実ファイルで確認された情報
-
-- VMAP008.DAT の行5、VMAP013.DAT の行0 は本体が 14 文字の typo 行が存在します。  
-  エディタでは先頭 13 文字を使用して読み込みます。
-- 半角カタカナ（ｱ / ｲ / ｳ）使用面：VMAP002, 006, 014, 017, 025, 031
+- **Files are saved to the browser's download folder** — direct overwrite is not possible due to browser security
+- **Touch input is not supported** — mouse required
+- CP932 characters other than ｱ / ｲ / ｳ (e.g. full-width characters) cannot be saved (not used in the game)
+- **Undo / Redo is not implemented**
+- Edits are lost when the browser is closed — save before closing
+- The game reads up to 32 rounds by default. Edit `scene max` in `PANIC.DEF` to enable more
 
 ---
 
-## 著作権
+## Notes from File Analysis
 
-ゲーム本体の著作権は **芸夢 職人 & 基 建吉 (BUGSOFT)** に帰属します。  
-本エディタはアーカイブ・保存目的で作成されたものです。
+- VMAP008.DAT row 5 and VMAP013.DAT row 0 contain 14-character body lines (typos in the originals). The editor uses the first 13 characters.
+- Half-width katakana used in: VMAP002, 006, 014, 017, 025, 031
+
+---
+
+## Copyright
+
+The game itself is copyright **芸夢 職人 & 基 建吉 (BUGSOFT)**.  
+This editor was created for archival and preservation purposes.
