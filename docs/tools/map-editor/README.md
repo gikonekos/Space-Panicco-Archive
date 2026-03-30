@@ -12,6 +12,9 @@ No installation or server required — just open it in a browser.
 - All 32 original maps (ROUND 001–032) are built in; ROUND 033–999 are available as blank maps
 - 13×12 grid with color-coded symbol display and editing
 - Saves as VMAP\*\*\*.DAT (DOS EOF appended, CP932-compatible output)
+- Undo / Redo (up to 50 steps)
+- Keyboard shortcuts for symbol selection
+- Touch input supported (iPad / smartphone)
 
 ---
 
@@ -27,7 +30,7 @@ No installation or server required — just open it in a browser.
 
 - **Modern desktop browser (Chrome / Edge / Firefox) — verified working**
 - Open the file locally; no server needed
-- **Touch input (iPad / smartphones) is not supported** — use a mouse on a PC
+- Touch input (iPad / smartphones) is supported
 
 ---
 
@@ -79,6 +82,30 @@ Selecting **Road (SP)** acts as an eraser.
 
 ---
 
+### Keyboard Shortcuts
+
+| Key | Action |
+|---|---|
+| `Space` | Select Road (eraser) |
+| `1` | Select Block |
+| `2` | Select Floor |
+| `7` | Select Hole |
+| `H` | Select Ladder |
+| `M` | Select PANICCO |
+| `A` | Select SLIMER |
+| `B` | Select EBYRINS |
+| `C` | Select ZAUROID |
+| `Q` | Select SLIMER (fall) — ｱ |
+| `W` | Select EBYRINS (fall) — ｲ |
+| `E` | Select ZAUROID (fall) — ｳ |
+| `Ctrl+Z` | Undo |
+| `Ctrl+Y` | Redo |
+
+> Shortcuts are inactive when the cursor is in a text input field.  
+> Key hints are shown on the right side of each palette button.
+
+---
+
 ### Copying a Round
 
 Use the **📋 Copy to** button and the input field next to it.
@@ -120,6 +147,17 @@ Click **💾 Save** to download the current round as a VMAP\*\*\*.DAT file.
 
 Click **🗑 Clear** to reset the current round to all Road (empty) cells.  
 A confirmation dialog appears. Row comments are preserved.
+
+---
+
+### Undo / Redo
+
+Click **↺ Undo** / **↻ Redo** in the toolbar, or use `Ctrl+Z` / `Ctrl+Y`.
+
+- Up to **50 steps** of history are kept per session
+- History is shared across all rounds
+- Undo/Redo history is cleared when the browser is closed
+- The Undo button is grayed out when no history is available
 
 ---
 
@@ -178,9 +216,7 @@ Chain falls, collisions, and burial kills work regardless of fall distance.
 ## Known Limitations
 
 - **Files are saved to the browser's download folder** — direct overwrite is not possible due to browser security
-- **Touch input is not supported** — mouse required
 - CP932 characters other than ｱ / ｲ / ｳ (e.g. full-width characters) cannot be saved (not used in the game)
-- **Undo / Redo is not implemented**
 - Edits are lost when the browser is closed — save before closing
 - The game reads up to 32 rounds by default. Edit `scene max` in `PANIC.DEF` to enable more
 

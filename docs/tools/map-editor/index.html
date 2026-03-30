@@ -152,6 +152,15 @@
     /* ステータス */
     #statusbar { margin-top:10px; font-size:11px; color:#aabbdd; letter-spacing:1px; border-top:1px solid #1a1a55; padding-top:5px; }
     #encoding-note { margin-top:8px; font-size:10px; color:#7788aa; line-height:1.6; }
+    /* Undo/Redo ボタン */
+    .btn.undo { border-color:#336699; color:#88bbff; }
+    .btn.undo:hover { background:#0a2a4a; }
+    /* キーヒント（パレットボタン右端） */
+    .pal-key {
+      font-size:9px; color:#445588; background:#080820;
+      border:1px solid #223366; padding:1px 4px; border-radius:2px;
+      margin-left:4px; flex-shrink:0; font-family:monospace;
+    }
     /* 変更済みマーク */
     .round-modified::after { content:" *"; color:#ffaa44; }
   </style>
@@ -160,7 +169,7 @@
 
 <div id="header">
   <h1>SPACE PANICCO</h1>
-  <span class="subtitle">VMAP EDITOR v1.2 &mdash; 1994 &copy;BUGSOFT</span>
+  <span class="subtitle">VMAP EDITOR v1.3 &mdash; 1994 &copy;BUGSOFT</span>
 </div>
 
 <div id="toolbar">
@@ -175,6 +184,10 @@
     &#128194; Load
     <input type="file" id="file-input" accept=".DAT,.dat" style="display:none">
   </label>
+
+  <!-- Undo / Redo -->
+  <button class="btn undo" id="btn-undo" title="Undo (Ctrl+Z)">&#8630; Undo</button>
+  <button class="btn undo" id="btn-redo" title="Redo (Ctrl+Y)">&#8631; Redo</button>
 
   <!-- 保存（現在面） -->
   <button class="btn" id="btn-save">&#128190; Save</button>
@@ -290,6 +303,57 @@ let selectedKey = 'space';
 let isDragging = false;
 
 // ============================================================
+//  Undo / Redo 履歴
+// ============================================================
+const UNDO_LIMIT = 50;  // 最大保持手数
+
+// 履歴スタック（各エントリ = {round, grid のスナップショット}）
+let undoStack = [];
+let redoStack = [];
+
+// 現在のグリッドをスナップショットとして保存する
+function pushUndoSnapshot() {
+  const grid = allMaps[currentRound].grid.map(row => [...row]);
+  undoStack.push({ round: currentRound, grid });
+  if (undoStack.length > UNDO_LIMIT) undoStack.shift();
+  redoStack = [];  // 新操作でRedoスタックをクリア
+  updateUndoButtons();
+}
+
+function undo() {
+  if (undoStack.length === 0) return;
+  // 現在状態をRedoスタックに退避
+  const cur = allMaps[currentRound].grid.map(row => [...row]);
+  redoStack.push({ round: currentRound, grid: cur });
+  // Undoスタックから復元
+  const snap = undoStack.pop();
+  if (snap.round !== currentRound) switchRound(snap.round);
+  allMaps[snap.round].grid = snap.grid.map(row => [...row]);
+  refreshGrid();
+  updateUndoButtons();
+  setStatus('Undo');
+}
+
+function redo() {
+  if (redoStack.length === 0) return;
+  const cur = allMaps[currentRound].grid.map(row => [...row]);
+  undoStack.push({ round: currentRound, grid: cur });
+  const snap = redoStack.pop();
+  if (snap.round !== currentRound) switchRound(snap.round);
+  allMaps[snap.round].grid = snap.grid.map(row => [...row]);
+  refreshGrid();
+  updateUndoButtons();
+  setStatus('Redo');
+}
+
+function updateUndoButtons() {
+  document.getElementById('btn-undo').disabled = undoStack.length === 0;
+  document.getElementById('btn-redo').disabled = redoStack.length === 0;
+  document.getElementById('btn-undo').style.opacity = undoStack.length === 0 ? '0.35' : '1';
+  document.getElementById('btn-redo').style.opacity = redoStack.length === 0 ? '0.35' : '1';
+}
+
+// ============================================================
 //  面セレクタ / コピー先セレクタ 構築
 // ============================================================
 
@@ -364,16 +428,38 @@ function buildGrid() {
       cell.addEventListener('mousedown', function(e) {
         e.preventDefault();
         isDragging = true;
+        pushUndoSnapshot();  // ドラッグ開始前にスナップショット
         paintCell(parseInt(this.dataset.row), parseInt(this.dataset.col));
       });
       cell.addEventListener('mouseenter', function() {
         if (!isDragging) return;
         paintCell(parseInt(this.dataset.row), parseInt(this.dataset.col));
       });
+
+      // タッチ操作対応
+      cell.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        isDragging = true;
+        pushUndoSnapshot();
+        paintCell(parseInt(this.dataset.row), parseInt(this.dataset.col));
+      }, { passive: false });
+
+      cell.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+        if (!isDragging) return;
+        // タッチ座標からセルを特定
+        const touch = e.touches[0];
+        const el = document.elementFromPoint(touch.clientX, touch.clientY);
+        if (el && el.classList.contains('cell')) {
+          paintCell(parseInt(el.dataset.row), parseInt(el.dataset.col));
+        }
+      }, { passive: false });
       grid.appendChild(cell);
     }
   }
-  document.addEventListener('mouseup', () => { isDragging = false; });
+  document.addEventListener('mouseup',    () => { isDragging = false; });
+  document.addEventListener('touchend',   () => { isDragging = false; });
+  document.addEventListener('touchcancel',() => { isDragging = false; });
   refreshGrid();
 }
 
@@ -396,7 +482,17 @@ function buildPalette() {
     desc.className = 'pal-desc';
     desc.textContent = s.desc;
 
-    btn.appendChild(icon); btn.appendChild(lbl); btn.appendChild(desc);
+    // キーヒント
+    const keyHints = {
+      'space':'SPC', '1':'1', '2':'2', '7':'7',
+      'H':'H', 'M':'M', 'A':'A', 'B':'B', 'C':'C',
+      'fa':'Q', 'fi':'W', 'fu':'E',
+    };
+    const hint = document.createElement('span');
+    hint.className = 'pal-key';
+    hint.textContent = keyHints[s.key] || '';
+
+    btn.appendChild(icon); btn.appendChild(lbl); btn.appendChild(desc); btn.appendChild(hint);
     btn.addEventListener('click', () => {
       selectedKey = s.key;
       refreshPaletteSelection();
@@ -447,11 +543,51 @@ function paintCell(row, col) {
 //  ファイル読み込み（現在面に上書き）
 // ============================================================
 
+// Undo / Redo ボタン
+document.getElementById('btn-undo').addEventListener('click', undo);
+document.getElementById('btn-redo').addEventListener('click', redo);
+
+// キーボード: Ctrl+Z / Ctrl+Y（Ctrl+Shift+Z も Redo として扱う）
+document.addEventListener('keydown', function(e) {
+  // テキスト入力フィールドにフォーカスがあるときはスキップ
+  const tag = document.activeElement.tagName;
+  if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+
+  if (e.ctrlKey && e.key === 'z') { e.preventDefault(); undo(); return; }
+  if (e.ctrlKey && (e.key === 'y' || (e.shiftKey && e.key === 'Z'))) {
+    e.preventDefault(); redo(); return;
+  }
+
+  // ============================================================
+  // パレット キーボードショートカット
+  // 記号キー直打ち: スペース=道, 1/2/7/H/M/A/B/C
+  // 半角カタカナ(ｱｲｳ) は Q/W/E で代替
+  // ============================================================
+  const keyMap = {
+    ' ': 'space',
+    '1': '1', '2': '2', '7': '7',
+    'h': 'H', 'H': 'H',
+    'm': 'M', 'M': 'M',
+    'a': 'A', 'A': 'A',
+    'b': 'B', 'B': 'B',
+    'c': 'C', 'C': 'C',
+    'q': 'fa', 'Q': 'fa',  // ｱ SLIMER fall
+    'w': 'fi', 'W': 'fi',  // ｲ EBYRINS fall
+    'e': 'fu', 'E': 'fu',  // ｳ ZAUROID fall
+  };
+  if (!e.ctrlKey && !e.altKey && e.key in keyMap) {
+    selectedKey = keyMap[e.key];
+    refreshPaletteSelection();
+    setStatus(`Palette: ${KEY_TO_SYM[selectedKey].sym === ' ' ? '(SP) Road' : KEY_TO_SYM[selectedKey].label}`);
+  }
+});
+
 document.getElementById('file-input').addEventListener('change', function(e) {
   const file = e.target.files[0];
   if (!file) return;
   const reader = new FileReader();
   reader.onload = ev => {
+    pushUndoSnapshot();  // 読み込み前にスナップショット
     const warnings = parseVmapFile(new Uint8Array(ev.target.result), currentRound);
     // ファイル名から面番号を読み取って更新
     allMaps[currentRound].filename = file.name;
@@ -582,6 +718,7 @@ document.getElementById('btn-copy').addEventListener('click', () => {
 
 document.getElementById('btn-clear').addEventListener('click', () => {
   if (!confirm(`Clear ROUND ${String(currentRound+1).padStart(3,'0')}? This cannot be undone.`)) return;
+  pushUndoSnapshot();  // クリア前にスナップショット
   allMaps[currentRound].grid = makeEmptyGrid();
   refreshGrid();
   clearWarnings();
@@ -681,6 +818,7 @@ buildPalette();
 buildRoundSelector();
 buildCopyDestSelector();
 switchRound(0);
+updateUndoButtons();
 </script>
 </body>
 </html>
