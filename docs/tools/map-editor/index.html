@@ -644,7 +644,10 @@ function makeEmptyGrid() {
 // ============================================================
 
 document.getElementById('btn-save').addEventListener('click', () => {
-  const warns = validateMap(currentRound);
+  const warns = [
+    ...validateMap(currentRound),
+    ...checkGapWarnings(currentRound),
+  ];
   if (warns.length > 0) showWarning('Save warnings (file saved anyway):\n' + warns.join('\n'));
   else clearWarnings();
 
@@ -728,6 +731,37 @@ document.getElementById('btn-clear').addEventListener('click', () => {
 // ============================================================
 //  バリデーション
 // ============================================================
+
+// 全セルが道(space)のままかどうか判定（= 未編集の空面）
+function isEmptyMap(roundIndex) {
+  const grid = allMaps[roundIndex].grid;
+  for (let r = 0; r < ROWS; r++)
+    for (let c = 0; c < COLS; c++)
+      if (grid[r][c] !== 'space') return false;
+  return true;
+}
+
+// 現在の ROUND より前に未保存（空面）の面がないかチェック
+// 内蔵32面（インデックス0〜31）は常に編集済み扱い
+function checkGapWarnings(roundIndex) {
+  const warns = [];
+  const emptyRounds = [];
+  for (let i = 32; i < roundIndex; i++) {
+    if (isEmptyMap(i)) {
+      emptyRounds.push(String(i + 1).padStart(3, '0'));
+    }
+  }
+  if (emptyRounds.length > 0) {
+    const list = emptyRounds.length <= 5
+      ? emptyRounds.join(', ')
+      : emptyRounds.slice(0, 5).join(', ') + ` ... (${emptyRounds.length} total)`;
+    warns.push(
+      `Gap warning: ROUND ${list} appears empty before this round.` +
+      ' The game will show "not open - VMAPxxx.DAT !!" for missing files.'
+    );
+  }
+  return warns;
+}
 
 function validateMap(roundIndex) {
   const grid = allMaps[roundIndex].grid;
