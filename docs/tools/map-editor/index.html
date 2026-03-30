@@ -442,9 +442,7 @@ document.getElementById('file-input').addEventListener('change', function(e) {
     // ファイル名から面番号を読み取って更新
     allMaps[currentRound].filename = file.name;
     document.getElementById('file-status').textContent = `← ${file.name} 読み込み済み`;
-    if (warnings.length > 0) showWarning('読み込み警告:
-' + warnings.join('
-'));
+    if (warnings.length > 0) showWarning('読み込み警告:\n' + warnings.join('\n'));
     else clearWarnings();
     refreshGrid();
     updateStats();
@@ -459,12 +457,8 @@ function parseVmapFile(bytes, targetRound) {
   try { text = new TextDecoder('shift-jis').decode(bytes); }
   catch (err) { setStatus('エラー：CP932デコード失敗'); return []; }
 
-  const lines = text.replace(//g,'').replace(/
-/g,'
-').replace(//g,'
-')
-    .split('
-').filter(l => l.length > 0).slice(0, ROWS);
+  const lines = text.replace(/\x1a/g,'').replace(/\r\n/g,'\n').replace(/\r/g,'\n')
+    .split('\n').filter(l => l.length > 0).slice(0, ROWS);
 
   const map = allMaps[targetRound];
   const newGrid = makeEmptyGrid();
@@ -501,9 +495,7 @@ function makeEmptyGrid() {
 
 document.getElementById('btn-save').addEventListener('click', () => {
   const warns = validateMap(currentRound);
-  if (warns.length > 0) showWarning('保存警告（続行します）:
-' + warns.join('
-'));
+  if (warns.length > 0) showWarning('保存警告（続行します）:\n' + warns.join('\n'));
   else clearWarnings();
 
   const bytes = buildOutputBytes(currentRound);
@@ -634,8 +626,7 @@ function updateStats() {
   `;
 
   const warns = validateMap(currentRound);
-  if (warns.length > 0) showWarning(warns.join('
-'));
+  if (warns.length > 0) showWarning(warns.join('\n'));
   else clearWarnings();
 }
 
@@ -649,8 +640,7 @@ function showWarning(msg) {
   const el = document.getElementById('warnings');
   el.classList.add('visible');
   el.innerHTML = '<div class="warn-title">&#9888; WARNING</div>'
-    + msg.split('
-').map(l => `<div>${l}</div>`).join('');
+    + msg.split('\n').map(l => `<div>${l}</div>`).join('');
 }
 function clearWarnings() {
   const el = document.getElementById('warnings');
