@@ -38,6 +38,16 @@ Part 2 includes DEF file editing, continuation play from Round 20, and confirmat
 
 ---
 
+## Tools
+
+- [VMAP Editor](https://gikonekos.github.io/Space-Panicco-Archive/tools/map-editor/)  
+  Browser-based editor for Space Panicco VMAP files.
+
+- [How to use the VMAP Editor](https://github.com/gikonekos/Space-Panicco-Archive/blob/main/docs/tools/map-editor/README.md)  
+  Usage notes and file format overview.
+
+---
+
 ## About the Game
 
 Space Panicco is a **platform action game inspired by Space Panic**.
