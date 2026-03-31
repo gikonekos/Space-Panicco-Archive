@@ -144,7 +144,7 @@
 
 <div id="header">
   <h1>SPACE PANICCO</h1>
-  <span class="subtitle">VMAP EDITOR v1.5.1 &mdash; 1994 &copy;BUGSOFT</span>
+  <span class="subtitle">VMAP EDITOR v1.5.2 &mdash; 1994 &copy;BUGSOFT</span>
 </div>
 
 <div id="toolbar">
@@ -460,17 +460,19 @@ document.getElementById('btn-save').addEventListener('click', () => {
   const fname = allMaps[currentRound].filename;
   const warns = [...validateMap(currentRound), ...checkEnemyPlacement(currentRound), ...checkGapWarnings(currentRound)];
 
-  let msg = `Save ROUND ${String(currentRound+1).padStart(3,'0')} as ${fname}?`;
+  // 警告がある場合のみ confirm（内容を表示してから保存判断）
   if (warns.length > 0) {
-    msg += '\n\n⚠ WARNINGS:\n' + warns.map(w => '· ' + w).join('\n') + '\n\nSave anyway?';
+    const msg = `⚠ WARNINGS — Save ROUND ${String(currentRound+1).padStart(3,'0')} as ${fname}?\n\n`
+      + warns.map(w => '· ' + w).join('\n') + '\n\nSave anyway?';
+    if (!confirm(msg)) {
+      setStatus('Save cancelled.');
+      return;
+    }
+    showWarning('Warnings:\n' + warns.join('\n'));
+  } else {
+    clearWarnings();
   }
 
-  if (!confirm(msg)) {
-    setStatus('Save cancelled.');
-    return;
-  }
-
-  warns.length ? showWarning('Warnings:\n' + warns.join('\n')) : clearWarnings();
   const bytes = buildOutputBytes(currentRound);
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([bytes], {type:'application/octet-stream'}));
