@@ -33,11 +33,9 @@
       min-height:100vh; padding:10px 14px 20px;
       border-top:4px solid var(--accent);
     }
-    /* ヘッダー */
     #header { display:flex; align-items:baseline; gap:14px; margin-bottom:10px; border-bottom:2px solid var(--border); padding-bottom:8px; }
     #header h1 { font-size:20px; color:var(--title); letter-spacing:3px; text-shadow:0 0 8px #ffdd0055; }
     .subtitle { font-size:11px; color:var(--text-dim); letter-spacing:1px; }
-    /* ツールバー */
     #toolbar { display:flex; gap:6px; flex-wrap:wrap; align-items:center; margin-bottom:10px; }
     .btn {
       padding:5px 12px; background:var(--bg-panel); color:var(--text);
@@ -47,25 +45,11 @@
     .btn:hover { background:#1a1a8a; border-color:var(--border-hi); }
     .btn.danger { border-color:#aa2222; color:#ff8888; }
     .btn.danger:hover { background:#3a0808; }
-    /* 面セレクタ */
     #round-select-wrap { display:flex; align-items:center; gap:6px; }
     #round-select-wrap label { font-size:11px; color:var(--text-dim); }
-    select#round-select {
-      background:#0a0a44; color:var(--text); border:1px solid var(--border);
-      padding:4px 8px; font-family:inherit; font-size:12px; cursor:pointer;
-    }
-    select#round-select:focus { outline:1px solid var(--border-hi); }
-    /* コピー先 */
     #copy-wrap { display:flex; align-items:center; gap:6px; }
-    select#copy-dest {
-      background:#0a0a44; color:var(--text); border:1px solid var(--border);
-      padding:4px 6px; font-family:inherit; font-size:12px; cursor:pointer;
-    }
-    /* ファイル読み込み状態 */
     #file-status { font-size:11px; color:#6666aa; font-style:italic; }
-    /* メインレイアウト */
     #main { display:flex; gap:14px; flex-wrap:wrap; align-items:flex-start; }
-    /* グリッドエリア */
     #grid-area { flex-shrink:0; }
     #grid-label { font-size:10px; color:var(--text-dim); margin-bottom:4px; letter-spacing:1px; }
     #col-index { display:grid; grid-template-columns:20px repeat(13,36px); gap:2px; margin-bottom:2px; }
@@ -83,7 +67,6 @@
       user-select:none; transition:filter 0.05s;
     }
     .cell:hover { filter:brightness(1.5); z-index:1; }
-    /* 記号別スタイル */
     .sym-space { background:var(--c-space-bg); }
     .sym-space::after { content:'·'; color:#1a1a66; font-size:18px; }
     .sym-1 {
@@ -95,14 +78,13 @@
     .sym-2 { background:var(--c-2-bg); color:var(--c-2-fg); background-image:repeating-linear-gradient(0deg,#aaaaff18 0,#aaaaff18 2px,transparent 2px,transparent 6px); }
     .sym-7  { background:var(--c-7-bg); color:var(--c-7-fg); border:1px solid #440000; }
     .sym-H  { background:var(--c-H-bg); color:var(--c-H-fg); background-image:repeating-linear-gradient(90deg,#ffee0030 0,#ffee0030 5px,transparent 5px,transparent 12px); }
-    .sym-A  { background:var(--c-A-bg);  color:var(--c-A-fg);  }
-    .sym-B  { background:var(--c-B-bg);  color:var(--c-B-fg);  }
-    .sym-C  { background:var(--c-C-bg);  color:var(--c-C-fg);  }
+    .sym-A  { background:var(--c-A-bg); color:var(--c-A-fg); }
+    .sym-B  { background:var(--c-B-bg); color:var(--c-B-fg); }
+    .sym-C  { background:var(--c-C-bg); color:var(--c-C-fg); }
     .sym-fa { background:var(--c-fa-bg); color:var(--c-fa-fg); }
     .sym-fi { background:var(--c-fi-bg); color:var(--c-fi-fg); }
     .sym-fu { background:var(--c-fu-bg); color:var(--c-fu-fg); }
-    .sym-M  { background:var(--c-M-bg);  color:var(--c-M-fg);  box-shadow:inset 0 0 6px #ff44ff44; }
-    /* パレット */
+    .sym-M  { background:var(--c-M-bg); color:var(--c-M-fg); box-shadow:inset 0 0 6px #ff44ff44; }
     #palette-area { flex-shrink:0; min-width:200px; }
     #palette-area h2 { font-size:11px; color:var(--title); letter-spacing:2px; margin-bottom:6px; border-bottom:1px solid var(--border); padding-bottom:4px; }
     #palette { display:flex; flex-direction:column; gap:3px; }
@@ -120,24 +102,22 @@
     .pi-1 { background:var(--c-1-bg); color:var(--c-1-fg);
              background-image:repeating-linear-gradient(45deg,#ffdd2220 0,#ffdd2220 4px,transparent 4px,transparent 8px),
                               repeating-linear-gradient(-45deg,#ffdd2220 0,#ffdd2220 4px,transparent 4px,transparent 8px); }
-    .pi-2  { background:var(--c-2-bg);  color:var(--c-2-fg); }
-    .pi-7  { background:var(--c-7-bg);  color:var(--c-7-fg); border:1px solid #440000; }
-    .pi-H  { background:var(--c-H-bg);  color:var(--c-H-fg); background-image:repeating-linear-gradient(90deg,#ffee0030 0,#ffee0030 5px,transparent 5px,transparent 12px); }
-    .pi-A  { background:var(--c-A-bg);  color:var(--c-A-fg); }
-    .pi-B  { background:var(--c-B-bg);  color:var(--c-B-fg); }
-    .pi-C  { background:var(--c-C-bg);  color:var(--c-C-fg); }
+    .pi-2  { background:var(--c-2-bg); color:var(--c-2-fg); }
+    .pi-7  { background:var(--c-7-bg); color:var(--c-7-fg); border:1px solid #440000; }
+    .pi-H  { background:var(--c-H-bg); color:var(--c-H-fg); }
+    .pi-A  { background:var(--c-A-bg); color:var(--c-A-fg); }
+    .pi-B  { background:var(--c-B-bg); color:var(--c-B-fg); }
+    .pi-C  { background:var(--c-C-bg); color:var(--c-C-fg); }
     .pi-fa { background:var(--c-fa-bg); color:var(--c-fa-fg); }
     .pi-fi { background:var(--c-fi-bg); color:var(--c-fi-fg); }
     .pi-fu { background:var(--c-fu-bg); color:var(--c-fu-fg); }
-    .pi-M  { background:var(--c-M-bg);  color:var(--c-M-fg); }
-    /* 情報パネル */
+    .pi-M  { background:var(--c-M-bg); color:var(--c-M-fg); }
     #info-area { flex-shrink:0; min-width:170px; }
     #info-area h2 { font-size:11px; color:var(--title); letter-spacing:2px; margin-bottom:6px; border-bottom:1px solid var(--border); padding-bottom:4px; }
     #stats { font-size:11px; line-height:2.0; color:#99aacc; }
     #stats .stat-val  { color:var(--text); }
     #stats .stat-warn { color:#ff8844; font-weight:bold; }
     #stats hr { border:none; border-top:1px solid #111144; margin:3px 0; }
-    /* 警告バナー: ツールバー直下・全幅・常に視界に入る */
     #warnings {
       display:none; margin-bottom:10px;
       padding:8px 14px; background:#2a0800;
@@ -149,66 +129,46 @@
     #warnings .warn-body { flex:1; }
     #warnings .warn-title { color:#ff7733; font-weight:bold; letter-spacing:1px; margin-bottom:2px; font-size:11px; }
     #warnings .warn-item  { color:#ffcc88; font-size:12px; }
-    /* ステータス */
     #statusbar { margin-top:10px; font-size:11px; color:#aabbdd; letter-spacing:1px; border-top:1px solid #1a1a55; padding-top:5px; }
     #encoding-note { margin-top:8px; font-size:10px; color:#7788aa; line-height:1.6; }
-    /* Undo/Redo ボタン */
     .btn.undo { border-color:#336699; color:#88bbff; }
     .btn.undo:hover { background:#0a2a4a; }
-    /* キーヒント（パレットボタン右端） */
     .pal-key {
       font-size:9px; color:#445588; background:#080820;
       border:1px solid #223366; padding:1px 4px; border-radius:2px;
       margin-left:4px; flex-shrink:0; font-family:monospace;
     }
-    /* 変更済みマーク */
-    .round-modified::after { content:" *"; color:#ffaa44; }
   </style>
 </head>
 <body>
 
 <div id="header">
   <h1>SPACE PANICCO</h1>
-  <span class="subtitle">VMAP EDITOR v1.4 &mdash; 1994 &copy;BUGSOFT</span>
+  <span class="subtitle">VMAP EDITOR v1.5 &mdash; 1994 &copy;BUGSOFT</span>
 </div>
 
 <div id="toolbar">
-  <!-- 面セレクタ（数値入力: 1〜999） -->
   <div id="round-select-wrap">
     <label for="round-select">ROUND:</label>
     <input type="number" id="round-select" min="1" max="999" value="1">
   </div>
-
-  <!-- ファイル読み込み（現在面に上書き） -->
-  <label class="btn" style="cursor:pointer;" title="現在の面にVMAPファイルを読み込む">
+  <label class="btn" style="cursor:pointer;" title="Load VMAP file into current round">
     &#128194; Load
     <input type="file" id="file-input" accept=".DAT,.dat" style="display:none">
   </label>
-
-  <!-- Undo / Redo -->
   <button class="btn undo" id="btn-undo" title="Undo (Ctrl+Z)">&#8630; Undo</button>
   <button class="btn undo" id="btn-redo" title="Redo (Ctrl+Y)">&#8631; Redo</button>
-
-  <!-- 保存（現在面） -->
   <button class="btn" id="btn-save">&#128190; Save</button>
-
-  <!-- コピー -->
   <div id="copy-wrap">
     <button class="btn" id="btn-copy">&#128203; Copy to</button>
-    <input type="number" id="copy-dest" min="1" max="999" value="2" title="コピー先の面番号（1〜999）">
-    
+    <input type="number" id="copy-dest" min="1" max="999" value="2" title="Copy destination round (1–999)">
   </div>
-
-  <!-- クリア -->
   <button class="btn danger" id="btn-clear">&#128465; Clear</button>
-
   <span id="file-status"></span>
 </div>
 
-<!-- 警告バナー: 常にツールバー直下・グリッド上部に表示 -->
 <div id="warnings"></div>
 
-<!-- メインエリア -->
 <div id="main">
   <div id="grid-area">
     <div id="grid-label">MAP GRID &nbsp; 13 &times; 12 &nbsp; (col &times; row)</div>
@@ -234,34 +194,27 @@
 </div>
 
 <script>
-// ============================================================
-//  定数
-// ============================================================
-const COLS = 13;
-const ROWS = 12;
-const TOTAL_ROUNDS = 999;
+const COLS = 13, ROWS = 12, TOTAL_ROUNDS = 999;
 
 const SYMBOLS = [
-  { key:'space', sym:' ',  label:'(SP) Road',         cssClass:'space', desc:'道'      },
-  { key:'1',     sym:'1',  label:'1   Block',          cssClass:'1',     desc:'ブロック' },
-  { key:'2',     sym:'2',  label:'2   Floor',          cssClass:'2',     desc:'床'      },
-  { key:'7',     sym:'7',  label:'7   Hole',           cssClass:'7',     desc:'穴'      },
-  { key:'H',     sym:'H',  label:'H   Ladder',         cssClass:'H',     desc:'はしご'  },
-  { key:'M',     sym:'M',  label:'M   PANICCO',        cssClass:'M',     desc:'ぱにっ娘' },
-  { key:'A',     sym:'A',  label:'A   SLIMER',         cssClass:'A',     desc:'enemy'   },
-  { key:'B',     sym:'B',  label:'B   EBYRINS',        cssClass:'B',     desc:'enemy'   },
-  { key:'C',     sym:'C',  label:'C   ZAUROID',        cssClass:'C',     desc:'enemy'   },
-  { key:'fa',    sym:'ｱ',  label:'ｱ   SLIMER (fall)',  cssClass:'fa',    desc:'落下'    },
-  { key:'fi',    sym:'ｲ',  label:'ｲ   EBYRINS (fall)', cssClass:'fi',   desc:'落下'    },
-  { key:'fu',    sym:'ｳ',  label:'ｳ   ZAUROID (fall)', cssClass:'fu',   desc:'落下'    },
+  { key:'space', sym:' ',  label:'(SP) Road',          cssClass:'space', desc:'道'       },
+  { key:'1',     sym:'1',  label:'1   Block',           cssClass:'1',     desc:'ブロック'  },
+  { key:'2',     sym:'2',  label:'2   Floor',           cssClass:'2',     desc:'床'       },
+  { key:'7',     sym:'7',  label:'7   Hole',            cssClass:'7',     desc:'穴'       },
+  { key:'H',     sym:'H',  label:'H   Ladder',          cssClass:'H',     desc:'はしご'   },
+  { key:'M',     sym:'M',  label:'M   PANICCO',         cssClass:'M',     desc:'ぱにっ娘'  },
+  { key:'A',     sym:'A',  label:'A   SLIMER',          cssClass:'A',     desc:'enemy'    },
+  { key:'B',     sym:'B',  label:'B   EBYRINS',         cssClass:'B',     desc:'enemy'    },
+  { key:'C',     sym:'C',  label:'C   ZAUROID',         cssClass:'C',     desc:'enemy'    },
+  { key:'fa',    sym:'ｱ',  label:'ｱ   SLIMER (fall)',   cssClass:'fa',    desc:'落下'     },
+  { key:'fi',    sym:'ｲ',  label:'ｲ   EBYRINS (fall)',  cssClass:'fi',    desc:'落下'     },
+  { key:'fu',    sym:'ｳ',  label:'ｳ   ZAUROID (fall)',  cssClass:'fu',    desc:'落下'     },
 ];
 
 const CHAR_TO_KEY = {};
 for (const s of SYMBOLS) CHAR_TO_KEY[s.sym] = s.key;
-
 const KEY_TO_SYM = {};
 for (const s of SYMBOLS) KEY_TO_SYM[s.key] = s;
-
 const CP932_KANA = { 'ｱ':0xB1, 'ｲ':0xB2, 'ｳ':0xB3 };
 
 // ============================================================
@@ -272,266 +225,167 @@ const BUILTIN_MAPS = [{"grid":[["space","space","space","space","space","space",
 // ============================================================
 //  状態
 // ============================================================
-
-// 全面データ (0-based index: round 1 = allMaps[0])
-// 各要素: { grid: [[key,...],..], comments: [str,...], filename: str }
-// 全999面を初期化
-// 1〜32面: BUILTIN_MAPS から生成、33〜999面: 空面
 const allMaps = Array.from({length: TOTAL_ROUNDS}, (_, i) => {
   if (i < BUILTIN_MAPS.length) {
     const m = BUILTIN_MAPS[i];
-    return {
-      grid:     m.grid.map(row => [...row]),
-      comments: [...m.comments],
-      filename: `VMAP${String(i+1).padStart(3,'0')}.DAT`,
-    };
+    return { grid: m.grid.map(row => [...row]), comments: [...m.comments], filename: `VMAP${String(i+1).padStart(3,'0')}.DAT` };
   }
   return {
-    grid:     Array.from({length:ROWS}, () => Array(COLS).fill('space')),
+    grid: Array.from({length:ROWS}, () => Array(COLS).fill('space')),
     comments: Array.from({length:ROWS}, (_, r) => ` ; ${r}`),
     filename: `VMAP${String(i+1).padStart(3,'0')}.DAT`,
   };
 });
 
-// 現在表示中の面インデックス（0-based）
-let currentRound = 0;
-
-// 現在選択中のパレットキー
-let selectedKey = 'space';
-
-// マウスドラッグフラグ
-let isDragging = false;
+let currentRound = 0, selectedKey = 'space', isDragging = false;
 
 // ============================================================
-//  Undo / Redo 履歴
+//  Undo / Redo
 // ============================================================
-const UNDO_LIMIT = 50;  // 最大保持手数
+const UNDO_LIMIT = 50;
+let undoStack = [], redoStack = [];
 
-// 履歴スタック（各エントリ = {round, grid のスナップショット}）
-let undoStack = [];
-let redoStack = [];
-
-// 現在のグリッドをスナップショットとして保存する
 function pushUndoSnapshot() {
-  const grid = allMaps[currentRound].grid.map(row => [...row]);
-  undoStack.push({ round: currentRound, grid });
+  undoStack.push({ round: currentRound, grid: allMaps[currentRound].grid.map(r => [...r]) });
   if (undoStack.length > UNDO_LIMIT) undoStack.shift();
-  redoStack = [];  // 新操作でRedoスタックをクリア
+  redoStack = [];
   updateUndoButtons();
 }
-
 function undo() {
-  if (undoStack.length === 0) return;
-  // 現在状態をRedoスタックに退避
-  const cur = allMaps[currentRound].grid.map(row => [...row]);
-  redoStack.push({ round: currentRound, grid: cur });
-  // Undoスタックから復元
+  if (!undoStack.length) return;
+  redoStack.push({ round: currentRound, grid: allMaps[currentRound].grid.map(r => [...r]) });
   const snap = undoStack.pop();
   if (snap.round !== currentRound) switchRound(snap.round);
-  allMaps[snap.round].grid = snap.grid.map(row => [...row]);
-  refreshGrid();
-  updateUndoButtons();
-  setStatus('Undo');
+  allMaps[snap.round].grid = snap.grid.map(r => [...r]);
+  refreshGrid(); updateUndoButtons(); setStatus('Undo');
 }
-
 function redo() {
-  if (redoStack.length === 0) return;
-  const cur = allMaps[currentRound].grid.map(row => [...row]);
-  undoStack.push({ round: currentRound, grid: cur });
+  if (!redoStack.length) return;
+  undoStack.push({ round: currentRound, grid: allMaps[currentRound].grid.map(r => [...r]) });
   const snap = redoStack.pop();
   if (snap.round !== currentRound) switchRound(snap.round);
-  allMaps[snap.round].grid = snap.grid.map(row => [...row]);
-  refreshGrid();
-  updateUndoButtons();
-  setStatus('Redo');
+  allMaps[snap.round].grid = snap.grid.map(r => [...r]);
+  refreshGrid(); updateUndoButtons(); setStatus('Redo');
 }
-
 function updateUndoButtons() {
-  document.getElementById('btn-undo').disabled = undoStack.length === 0;
-  document.getElementById('btn-redo').disabled = redoStack.length === 0;
-  document.getElementById('btn-undo').style.opacity = undoStack.length === 0 ? '0.35' : '1';
-  document.getElementById('btn-redo').style.opacity = redoStack.length === 0 ? '0.35' : '1';
+  ['btn-undo','btn-redo'].forEach((id, i) => {
+    const empty = i === 0 ? !undoStack.length : !redoStack.length;
+    document.getElementById(id).disabled = empty;
+    document.getElementById(id).style.opacity = empty ? '0.35' : '1';
+  });
 }
 
 // ============================================================
-//  面セレクタ / コピー先セレクタ 構築
+//  面セレクタ
 // ============================================================
-
 function buildRoundSelector() {
-  // input[type=number] で 1〜999 を直接入力
   const inp = document.getElementById('round-select');
-  inp.value = currentRound + 1;  // 表示は1-based
+  inp.value = 1;
   inp.addEventListener('change', () => {
-    let v = parseInt(inp.value);
-    if (isNaN(v)) v = 1;
-    v = Math.max(1, Math.min(TOTAL_ROUNDS, v));
-    inp.value = v;
-    switchRound(v - 1);  // 内部は0-based
+    let v = Math.max(1, Math.min(999, parseInt(inp.value) || 1));
+    inp.value = v; switchRound(v - 1);
   });
-  // Enterキーでも切り替え
-  inp.addEventListener('keydown', e => {
-    if (e.key === 'Enter') inp.dispatchEvent(new Event('change'));
-  });
+  inp.addEventListener('keydown', e => { if (e.key === 'Enter') inp.dispatchEvent(new Event('change')); });
 }
-
 function buildCopyDestSelector() {
-  const inp = document.getElementById('copy-dest');
-  inp.value = Math.min(currentRound + 2, TOTAL_ROUNDS);  // 表示は1-based
+  document.getElementById('copy-dest').value = Math.min(currentRound + 2, TOTAL_ROUNDS);
 }
-
-// 面切り替え（グリッドを保存してから新面を表示）
-function switchRound(newIndex) {
-  currentRound = Math.max(0, Math.min(TOTAL_ROUNDS - 1, newIndex));
-  // 表示は1-based
+function switchRound(idx) {
+  currentRound = Math.max(0, Math.min(TOTAL_ROUNDS - 1, idx));
   document.getElementById('round-select').value = currentRound + 1;
   document.getElementById('copy-dest').value = Math.min(currentRound + 2, TOTAL_ROUNDS);
-  refreshGrid();
-  updateStats();
+  refreshGrid(); updateStats();
   setStatus(`Viewing ROUND ${String(currentRound+1).padStart(3,'0')}`);
 }
 
 // ============================================================
 //  UI 構築
 // ============================================================
-
 function buildColIndex() {
   const el = document.getElementById('col-index');
   el.innerHTML = '<div class="index-label"></div>';
   for (let c = 0; c < COLS; c++) {
     const d = document.createElement('div');
-    d.className = 'index-label';
-    d.textContent = c;
-    el.appendChild(d);
+    d.className = 'index-label'; d.textContent = c; el.appendChild(d);
   }
 }
-
 function buildRowIndex() {
   const el = document.getElementById('row-index');
   el.innerHTML = '';
   for (let r = 0; r < ROWS; r++) {
     const d = document.createElement('div');
-    d.className = 'row-label';
-    d.textContent = r;
-    el.appendChild(d);
+    d.className = 'row-label'; d.textContent = r; el.appendChild(d);
   }
 }
-
 function buildGrid() {
   const grid = document.getElementById('grid');
   grid.innerHTML = '';
   for (let r = 0; r < ROWS; r++) {
     for (let c = 0; c < COLS; c++) {
       const cell = document.createElement('div');
-      cell.className = 'cell';
-      cell.dataset.row = r;
-      cell.dataset.col = c;
+      cell.className = 'cell'; cell.dataset.row = r; cell.dataset.col = c;
       cell.addEventListener('mousedown', function(e) {
-        e.preventDefault();
-        isDragging = true;
-        pushUndoSnapshot();  // ドラッグ開始前にスナップショット
-        paintCell(parseInt(this.dataset.row), parseInt(this.dataset.col));
+        e.preventDefault(); isDragging = true; pushUndoSnapshot();
+        paintCell(+this.dataset.row, +this.dataset.col);
       });
       cell.addEventListener('mouseenter', function() {
-        if (!isDragging) return;
-        paintCell(parseInt(this.dataset.row), parseInt(this.dataset.col));
+        if (isDragging) paintCell(+this.dataset.row, +this.dataset.col);
       });
-
-      // タッチ操作対応
       cell.addEventListener('touchstart', function(e) {
-        e.preventDefault();
-        isDragging = true;
-        pushUndoSnapshot();
-        paintCell(parseInt(this.dataset.row), parseInt(this.dataset.col));
-      }, { passive: false });
-
+        e.preventDefault(); isDragging = true; pushUndoSnapshot();
+        paintCell(+this.dataset.row, +this.dataset.col);
+      }, {passive:false});
       cell.addEventListener('touchmove', function(e) {
-        e.preventDefault();
-        if (!isDragging) return;
-        // タッチ座標からセルを特定
-        const touch = e.touches[0];
-        const el = document.elementFromPoint(touch.clientX, touch.clientY);
-        if (el && el.classList.contains('cell')) {
-          paintCell(parseInt(el.dataset.row), parseInt(el.dataset.col));
-        }
-      }, { passive: false });
+        e.preventDefault(); if (!isDragging) return;
+        const t = e.touches[0];
+        const el = document.elementFromPoint(t.clientX, t.clientY);
+        if (el?.classList.contains('cell')) paintCell(+el.dataset.row, +el.dataset.col);
+      }, {passive:false});
       grid.appendChild(cell);
     }
   }
-  document.addEventListener('mouseup',    () => { isDragging = false; });
-  document.addEventListener('touchend',   () => { isDragging = false; });
-  document.addEventListener('touchcancel',() => { isDragging = false; });
+  document.addEventListener('mouseup',    () => isDragging = false);
+  document.addEventListener('touchend',   () => isDragging = false);
+  document.addEventListener('touchcancel',() => isDragging = false);
   refreshGrid();
 }
-
 function buildPalette() {
   const pal = document.getElementById('palette');
   pal.innerHTML = '';
+  const keyHints = { 'space':'SPC','1':'1','2':'2','7':'7','H':'H','M':'M','A':'A','B':'B','C':'C','fa':'Q','fi':'W','fu':'E' };
   for (const s of SYMBOLS) {
     const btn = document.createElement('button');
-    btn.className = 'pal-btn';
-    btn.dataset.key = s.key;
-
+    btn.className = 'pal-btn'; btn.dataset.key = s.key;
     const icon = document.createElement('div');
     icon.className = `pal-icon pi-${s.cssClass}`;
-    icon.textContent = (s.key === 'space') ? '·' : s.sym;
-
-    const lbl = document.createElement('span');
-    lbl.textContent = s.label;
-
-    const desc = document.createElement('span');
-    desc.className = 'pal-desc';
-    desc.textContent = s.desc;
-
-    // キーヒント
-    const keyHints = {
-      'space':'SPC', '1':'1', '2':'2', '7':'7',
-      'H':'H', 'M':'M', 'A':'A', 'B':'B', 'C':'C',
-      'fa':'Q', 'fi':'W', 'fu':'E',
-    };
-    const hint = document.createElement('span');
-    hint.className = 'pal-key';
-    hint.textContent = keyHints[s.key] || '';
-
-    btn.appendChild(icon); btn.appendChild(lbl); btn.appendChild(desc); btn.appendChild(hint);
-    btn.addEventListener('click', () => {
-      selectedKey = s.key;
-      refreshPaletteSelection();
-    });
+    icon.textContent = s.key === 'space' ? '·' : s.sym;
+    const lbl = document.createElement('span'); lbl.textContent = s.label;
+    const desc = document.createElement('span'); desc.className = 'pal-desc'; desc.textContent = s.desc;
+    const hint = document.createElement('span'); hint.className = 'pal-key'; hint.textContent = keyHints[s.key] || '';
+    btn.append(icon, lbl, desc, hint);
+    btn.addEventListener('click', () => { selectedKey = s.key; refreshPaletteSelection(); });
     pal.appendChild(btn);
   }
   refreshPaletteSelection();
 }
-
 function refreshPaletteSelection() {
-  document.querySelectorAll('.pal-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.key === selectedKey);
-  });
+  document.querySelectorAll('.pal-btn').forEach(b => b.classList.toggle('active', b.dataset.key === selectedKey));
 }
 
 // ============================================================
-//  グリッド描画
+//  グリッド描画・ペイント
 // ============================================================
-
 function refreshGrid() {
-  // 現在面のグリッドデータを全セルに反映
   const map = allMaps[currentRound];
   document.querySelectorAll('#grid .cell').forEach(cell => {
-    const r = parseInt(cell.dataset.row);
-    const c = parseInt(cell.dataset.col);
-    applyCellStyle(cell, map.grid[r][c]);
+    applyCellStyle(cell, map.grid[+cell.dataset.row][+cell.dataset.col]);
   });
 }
-
 function applyCellStyle(cell, key) {
-  const sym = KEY_TO_SYM[key];
-  cell.className = `cell sym-${sym.cssClass}`;
-  cell.textContent = (key === 'space') ? '' : sym.sym;
+  const s = KEY_TO_SYM[key];
+  cell.className = `cell sym-${s.cssClass}`;
+  cell.textContent = key === 'space' ? '' : s.sym;
 }
-
-// ============================================================
-//  セル描画
-// ============================================================
-
 function paintCell(row, col) {
   allMaps[currentRound].grid[row][col] = selectedKey;
   const cell = document.querySelector(`.cell[data-row="${row}"][data-col="${col}"]`);
@@ -540,266 +394,190 @@ function paintCell(row, col) {
 }
 
 // ============================================================
-//  ファイル読み込み（現在面に上書き）
+//  イベントリスナー
 // ============================================================
-
-// Undo / Redo ボタン
 document.getElementById('btn-undo').addEventListener('click', undo);
 document.getElementById('btn-redo').addEventListener('click', redo);
 
-// キーボード: Ctrl+Z / Ctrl+Y（Ctrl+Shift+Z も Redo として扱う）
-document.addEventListener('keydown', function(e) {
-  // テキスト入力フィールドにフォーカスがあるときはスキップ
+document.addEventListener('keydown', e => {
   const tag = document.activeElement.tagName;
   if (tag === 'INPUT' || tag === 'TEXTAREA') return;
-
   if (e.ctrlKey && e.key === 'z') { e.preventDefault(); undo(); return; }
-  if (e.ctrlKey && (e.key === 'y' || (e.shiftKey && e.key === 'Z'))) {
-    e.preventDefault(); redo(); return;
-  }
-
-  // ============================================================
-  // パレット キーボードショートカット
-  // 記号キー直打ち: スペース=道, 1/2/7/H/M/A/B/C
-  // 半角カタカナ(ｱｲｳ) は Q/W/E で代替
-  // ============================================================
-  const keyMap = {
-    ' ': 'space',
-    '1': '1', '2': '2', '7': '7',
-    'h': 'H', 'H': 'H',
-    'm': 'M', 'M': 'M',
-    'a': 'A', 'A': 'A',
-    'b': 'B', 'B': 'B',
-    'c': 'C', 'C': 'C',
-    'q': 'fa', 'Q': 'fa',  // ｱ SLIMER fall
-    'w': 'fi', 'W': 'fi',  // ｲ EBYRINS fall
-    'e': 'fu', 'E': 'fu',  // ｳ ZAUROID fall
-  };
-  if (!e.ctrlKey && !e.altKey && e.key in keyMap) {
-    selectedKey = keyMap[e.key];
-    refreshPaletteSelection();
+  if (e.ctrlKey && (e.key === 'y' || (e.shiftKey && e.key === 'Z'))) { e.preventDefault(); redo(); return; }
+  const km = {' ':'space','1':'1','2':'2','7':'7','h':'H','H':'H','m':'M','M':'M','a':'A','A':'A','b':'B','B':'B','c':'C','C':'C','q':'fa','Q':'fa','w':'fi','W':'fi','e':'fu','E':'fu'};
+  if (!e.ctrlKey && !e.altKey && e.key in km) {
+    selectedKey = km[e.key]; refreshPaletteSelection();
     setStatus(`Palette: ${KEY_TO_SYM[selectedKey].sym === ' ' ? '(SP) Road' : KEY_TO_SYM[selectedKey].label}`);
   }
 });
 
 document.getElementById('file-input').addEventListener('change', function(e) {
-  const file = e.target.files[0];
-  if (!file) return;
+  const file = e.target.files[0]; if (!file) return;
   const reader = new FileReader();
   reader.onload = ev => {
-    pushUndoSnapshot();  // 読み込み前にスナップショット
-    const warnings = parseVmapFile(new Uint8Array(ev.target.result), currentRound);
-    // ファイル名から面番号を読み取って更新
+    pushUndoSnapshot();
+    const warns = parseVmapFile(new Uint8Array(ev.target.result), currentRound);
     allMaps[currentRound].filename = file.name;
     document.getElementById('file-status').textContent = `← ${file.name} loaded`;
-    if (warnings.length > 0) showWarning('Load warnings:\n' + warnings.join('\n'));
-    else clearWarnings();
-    refreshGrid();
-    updateStats();
-    setStatus(`${file.name} を ROUND ${String(currentRound+1).padStart(3,'0')} に読み込みました`);
+    warns.length ? showWarning('Load warnings:\n' + warns.join('\n')) : clearWarnings();
+    refreshGrid(); updateStats();
+    setStatus(`${file.name} loaded into ROUND ${String(currentRound+1).padStart(3,'0')}`);
   };
-  reader.readAsArrayBuffer(file);
-  this.value = '';
+  reader.readAsArrayBuffer(file); this.value = '';
 });
 
 function parseVmapFile(bytes, targetRound) {
   let text;
   try { text = new TextDecoder('shift-jis').decode(bytes); }
-  catch (err) { setStatus('Error: Failed to decode CP932 file.'); return []; }
-
-  const lines = text.replace(/\x1a/g,'').replace(/\r\n/g,'\n').replace(/\r/g,'\n')
-    .split('\n').filter(l => l.length > 0).slice(0, ROWS);
-
+  catch { setStatus('Error: Failed to decode CP932 file.'); return []; }
+  const lines = text.replace(/\x1a/g,'').replace(/\r\n|\r/g,'\n').split('\n').filter(l => l).slice(0, ROWS);
   const map = allMaps[targetRound];
   const newGrid = makeEmptyGrid();
   const newComments = Array.from({length:ROWS}, (_,i) => ` ; ${i}`);
-  const parseWarnings = [];
-
+  const warns = [];
   for (let r = 0; r < ROWS; r++) {
     const line = lines[r] || '';
     const si = line.indexOf(';');
-    const body   = si >= 0 ? line.substring(0, si) : line;
-    const csuf   = si >= 0 ? (';' + line.substring(si+1)) : `; ${r}`;
-    const mapBody   = (body.substring(0, COLS) + ' '.repeat(COLS)).substring(0, COLS);
-    const bodyExtra = body.substring(COLS);
-    newComments[r] = bodyExtra + csuf;
-
+    const body = si >= 0 ? line.substring(0, si) : line;
+    const csuf = si >= 0 ? ';' + line.substring(si+1) : `; ${r}`;
+    const mapBody = (body.substring(0, COLS) + ' '.repeat(COLS)).substring(0, COLS);
+    newComments[r] = body.substring(COLS) + csuf;
     for (let c = 0; c < COLS; c++) {
       const ch = mapBody[c];
-      newGrid[r][c] = (ch in CHAR_TO_KEY) ? CHAR_TO_KEY[ch] : 'space';
-      if (!(ch in CHAR_TO_KEY)) parseWarnings.push(`Row ${r} Col ${c}: unknown character '${ch}'`);
+      if (ch in CHAR_TO_KEY) newGrid[r][c] = CHAR_TO_KEY[ch];
+      else warns.push(`Row ${r} Col ${c}: unknown character '${ch}'`);
     }
   }
-  map.grid = newGrid;
-  map.comments = newComments;
-  return parseWarnings;
+  map.grid = newGrid; map.comments = newComments;
+  return warns;
 }
-
-function makeEmptyGrid() {
-  return Array.from({length:ROWS}, () => Array(COLS).fill('space'));
-}
+function makeEmptyGrid() { return Array.from({length:ROWS}, () => Array(COLS).fill('space')); }
 
 // ============================================================
-//  ファイル保存（現在面）
+//  保存
 // ============================================================
-
 document.getElementById('btn-save').addEventListener('click', () => {
-  const warns = [
-    ...validateMap(currentRound),
-    ...checkEnemyPlacement(currentRound),
-    ...checkGapWarnings(currentRound),
-  ];
-  if (warns.length > 0) showWarning('Save warnings (file saved anyway):\n' + warns.join('\n'));
-  else clearWarnings();
-
+  const warns = [...validateMap(currentRound), ...checkEnemyPlacement(currentRound), ...checkGapWarnings(currentRound)];
+  warns.length ? showWarning('Save warnings (file saved anyway):\n' + warns.join('\n')) : clearWarnings();
   const bytes = buildOutputBytes(currentRound);
   const fname = allMaps[currentRound].filename;
-
-  const blob = new Blob([bytes], {type:'application/octet-stream'});
-  const url  = URL.createObjectURL(blob);
-  const a    = document.createElement('a');
-  a.href = url; a.download = fname; a.click();
-  URL.revokeObjectURL(url);
-
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([bytes], {type:'application/octet-stream'}));
+  a.download = fname; a.click(); URL.revokeObjectURL(a.href);
   setStatus(`Saved: ${fname} (${bytes.length} bytes, EOF 0x1A appended)`);
 });
 
-function buildOutputBytes(roundIndex) {
-  const map = allMaps[roundIndex];
-  const byteParts = [];
-
-  function pushStr(str) {
-    for (let i = 0; i < str.length; i++) {
-      const ch = str[i];
-      byteParts.push(ch in CP932_KANA ? CP932_KANA[ch] : ch.charCodeAt(0));
-    }
-  }
-
+function buildOutputBytes(idx) {
+  const map = allMaps[idx];
+  const out = [];
+  const pushStr = s => { for (const ch of s) out.push(ch in CP932_KANA ? CP932_KANA[ch] : ch.charCodeAt(0)); };
   for (let r = 0; r < ROWS; r++) {
     for (let c = 0; c < COLS; c++) {
       const ch = KEY_TO_SYM[map.grid[r][c]].sym;
-      byteParts.push(ch in CP932_KANA ? CP932_KANA[ch] : ch.charCodeAt(0));
+      out.push(ch in CP932_KANA ? CP932_KANA[ch] : ch.charCodeAt(0));
     }
-    pushStr(map.comments[r]);
-    byteParts.push(0x0D, 0x0A);
+    pushStr(map.comments[r]); out.push(0x0D, 0x0A);
   }
-  byteParts.push(0x1A);
-  return new Uint8Array(byteParts);
+  out.push(0x1A);
+  return new Uint8Array(out);
 }
 
 // ============================================================
-//  面コピー
+//  コピー・クリア
 // ============================================================
-
 document.getElementById('btn-copy').addEventListener('click', () => {
-  const src  = currentRound;
   const destVal = parseInt(document.getElementById('copy-dest').value);
-  if (isNaN(destVal) || destVal < 1 || destVal > TOTAL_ROUNDS) {
-    setStatus('Invalid copy destination. Enter 1–999.'); return;
-  }
-  const dest = destVal - 1;  // 0-based
-  if (src === dest) { setStatus('Copy source and destination are the same.'); return; }
-
-  const srcMap  = allMaps[src];
-  const destMap = allMaps[dest];
-
-  // ディープコピー（コメントはコピー先の行番号を維持）
-  destMap.grid = srcMap.grid.map(row => [...row]);
-  // コメントはコピー先の元のコメントを維持（行番号が違うため）
-  // → 上書きせず元のコメントをそのまま使う
-
-  setStatus(`Copied ROUND ${String(src+1).padStart(3,'0')} → ROUND ${String(dest+1).padStart(3,'0')}.`);
-
-  // コピー先に移動するか聞く
-  if (confirm(`Move to ROUND ${String(dest+1).padStart(3,'0')}?`)) {
-    switchRound(dest);
-  }
+  if (isNaN(destVal) || destVal < 1 || destVal > TOTAL_ROUNDS) { setStatus('Invalid copy destination.'); return; }
+  const dest = destVal - 1;
+  if (currentRound === dest) { setStatus('Source and destination are the same.'); return; }
+  allMaps[dest].grid = allMaps[currentRound].grid.map(r => [...r]);
+  setStatus(`Copied ROUND ${String(currentRound+1).padStart(3,'0')} → ROUND ${String(dest+1).padStart(3,'0')}.`);
+  if (confirm(`Move to ROUND ${String(dest+1).padStart(3,'0')}?`)) switchRound(dest);
 });
-
-// ============================================================
-//  クリア（現在面）
-// ============================================================
 
 document.getElementById('btn-clear').addEventListener('click', () => {
   if (!confirm(`Clear ROUND ${String(currentRound+1).padStart(3,'0')}? This cannot be undone.`)) return;
-  pushUndoSnapshot();  // クリア前にスナップショット
+  pushUndoSnapshot();
   allMaps[currentRound].grid = makeEmptyGrid();
-  refreshGrid();
-  clearWarnings();
+  refreshGrid(); clearWarnings();
   setStatus(`ROUND ${String(currentRound+1).padStart(3,'0')} cleared.`);
 });
 
 // ============================================================
 //  バリデーション
 // ============================================================
-
-// 全セルが道(space)のままかどうか判定（= 未編集の空面）
-function isEmptyMap(roundIndex) {
-  const grid = allMaps[roundIndex].grid;
-  for (let r = 0; r < ROWS; r++)
-    for (let c = 0; c < COLS; c++)
-      if (grid[r][c] !== 'space') return false;
-  return true;
+function isEmptyMap(idx) {
+  return allMaps[idx].grid.every(row => row.every(c => c === 'space'));
 }
 
-// 現在の ROUND より前に未保存（空面）の面がないかチェック
-// 内蔵32面（インデックス0〜31）は常に編集済み扱い
-function checkGapWarnings(roundIndex) {
-  const warns = [];
-  const emptyRounds = [];
-  for (let i = 32; i < roundIndex; i++) {
-    if (isEmptyMap(i)) {
-      emptyRounds.push(String(i + 1).padStart(3, '0'));
-    }
-  }
-  if (emptyRounds.length > 0) {
-    const list = emptyRounds.length <= 5
-      ? emptyRounds.join(', ')
-      : emptyRounds.slice(0, 5).join(', ') + ` ... (${emptyRounds.length} total)`;
-    warns.push(
-      `Gap warning: ROUND ${list} appears empty before this round.` +
-      ' The game will show "not open - VMAPxxx.DAT !!" for missing files.'
-    );
-  }
-  return warns;
+function checkGapWarnings(idx) {
+  const empty = [];
+  for (let i = 32; i < idx; i++) if (isEmptyMap(i)) empty.push(String(i+1).padStart(3,'0'));
+  if (!empty.length) return [];
+  const list = empty.length <= 5 ? empty.join(', ') : empty.slice(0,5).join(', ') + ` ... (${empty.length} total)`;
+  return [`Gap warning: ROUND ${list} appears empty. Game will show "not open - VMAPxxx.DAT !!".`];
 }
 
-// 指定セルの真下方向（rowの下側）に着地可能なセルがあるか調べる
-// 着地可能 = '1'（ブロック）/ '2'（床）/ 'H'（はしご）
-function hasLandingBelow(grid, row, col) {
-  const landable = new Set(['1', '2', 'H']);
+// 着地可能セル（1/2/H）が真下にあるか → { found: bool, landRow: number, landCol: number }
+function findLanding(grid, row, col) {
+  const landable = new Set(['1','2','H']);
   for (let r = row + 1; r < ROWS; r++) {
-    if (landable.has(grid[r][col])) return true;
-    // 空道でない（別の敵など）があれば、その上には着地できない
-    if (grid[r][col] !== 'space') return false;
+    const cell = grid[r][col];
+    if (landable.has(cell)) return { found: true, landRow: r - 1, landCol: col };
+    if (cell !== 'space') break;
   }
-  return false;  // 最下段まで何もない
+  return { found: false };
 }
 
-// 通常敵（A/B/C）の配置が問題ないかチェック
-// 自分の列・左隣列・右隣列のいずれかに着地可能な床があればOK
-function checkEnemyPlacement(roundIndex) {
-  const grid = allMaps[roundIndex].grid;
+// ============================================================
+//  v1.5 袋小路フリーズ判定
+//  着地セルの左右いずれかに連続 2 マス以上の space があるか
+// ============================================================
+function hasEscapeRoom(grid, landRow, landCol) {
+  // 左方向: landCol-1 から col=0 に向かって連続 space をカウント
+  let left = 0;
+  for (let c = landCol - 1; c >= 0; c--) {
+    if (grid[landRow][c] === 'space') left++;
+    else break;
+  }
+  if (left >= 2) return true;
+
+  // 右方向: landCol+1 から col=COLS-1 に向かって連続 space をカウント
+  let right = 0;
+  for (let c = landCol + 1; c < COLS; c++) {
+    if (grid[landRow][c] === 'space') right++;
+    else break;
+  }
+  return right >= 2;
+}
+
+function checkEnemyPlacement(idx) {
+  const grid = allMaps[idx].grid;
   const warns = [];
-  const normalEnemies = new Set(['A', 'B', 'C']);
-  const symName = { 'A': 'SLIMER', 'B': 'EBYRINS', 'C': 'ZAUROID' };
+  const enemies = new Set(['A','B','C']);
+  const name = { A:'SLIMER', B:'EBYRINS', C:'ZAUROID' };
 
   for (let r = 0; r < ROWS; r++) {
     for (let c = 0; c < COLS; c++) {
       const k = grid[r][c];
-      if (!normalEnemies.has(k)) continue;
+      if (!enemies.has(k)) continue;
 
-      // 自分の列・左隣・右隣に着地可能な床があるか
-      const cols = [c];
-      if (c > 0)        cols.push(c - 1);
-      if (c < COLS - 1) cols.push(c + 1);
+      // 自列・左列・右列で最初に着地できる場所を探す
+      const cols = [c, c-1, c+1].filter(cc => cc >= 0 && cc < COLS);
+      let landing = null;
+      for (const cc of cols) {
+        const res = findLanding(grid, r, cc);
+        if (res.found) { landing = res; break; }
+      }
 
-      const canLand = cols.some(cc => hasLandingBelow(grid, r, cc));
-
-      if (!canLand) {
+      if (!landing) {
+        // 着地床なし（v1.4相当）
+        warns.push(`Freeze risk: ${name[k]} (${k}) at row ${r} col ${c} — no reachable floor, will freeze.`);
+      } else if (!hasEscapeRoom(grid, landing.landRow, landing.landCol)) {
+        // 着地できるが袋小路（v1.5新規）
         warns.push(
-          `Freeze risk: ${symName[k]} (${k}) at row ${r} col ${c} ` +
-          'has no reachable floor — may cause a freeze.'
+          `Dead-end freeze: ${name[k]} (${k}) at row ${r} col ${c} — lands at row ${landing.landRow} col ${landing.landCol}` +
+          ` but has <2 free spaces in either direction, may freeze.`
         );
       }
     }
@@ -807,83 +585,66 @@ function checkEnemyPlacement(roundIndex) {
   return warns;
 }
 
-function validateMap(roundIndex) {
-  const grid = allMaps[roundIndex].grid;
+function validateMap(idx) {
+  const grid = allMaps[idx].grid;
   const warns = [];
-  let mCount = 0, enemyCount = 0;
-  const enemyKeys = new Set(['A','B','C','fa','fi','fu']);
+  let mCount = 0, eCount = 0;
+  const eKeys = new Set(['A','B','C','fa','fi','fu']);
   for (let r = 0; r < ROWS; r++)
     for (let c = 0; c < COLS; c++) {
-      const k = grid[r][c];
-      if (k === 'M') mCount++;
-      if (enemyKeys.has(k)) enemyCount++;
+      if (grid[r][c] === 'M') mCount++;
+      if (eKeys.has(grid[r][c])) eCount++;
     }
   if (mCount === 0) warns.push('PANICCO (M) is not placed on the map.');
   else if (mCount > 1) warns.push(`PANICCO (M) appears ${mCount} times — only 1 allowed.`);
-  if (enemyCount > 16) warns.push(`Enemy count is ${enemyCount} — maximum is 16.`);
+  if (eCount > 16) warns.push(`Enemy count is ${eCount} — maximum is 16.`);
   return warns;
 }
 
 // ============================================================
 //  統計表示
 // ============================================================
-
 function updateStats() {
   const grid = allMaps[currentRound].grid;
-  const counts = {};
-  for (const s of SYMBOLS) counts[s.key] = 0;
-  for (let r = 0; r < ROWS; r++)
-    for (let c = 0; c < COLS; c++)
-      counts[grid[r][c]]++;
-
-  const enemyTotal = counts['A']+counts['B']+counts['C']+counts['fa']+counts['fi']+counts['fu'];
-  const mOk = counts['M'] === 1;
-  const eOk = enemyTotal <= 16;
-
+  const cnt = {};
+  for (const s of SYMBOLS) cnt[s.key] = 0;
+  for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) cnt[grid[r][c]]++;
+  const eTotal = cnt['A']+cnt['B']+cnt['C']+cnt['fa']+cnt['fi']+cnt['fu'];
+  const mOk = cnt['M'] === 1, eOk = eTotal <= 16;
   document.getElementById('stats').innerHTML = `
-    <div>M PANICCO&nbsp;&nbsp;: <span class="${mOk?'stat-val':'stat-warn'}">${counts['M']}</span> / 1</div>
-    <div>Enemies&nbsp;&nbsp;&nbsp;: <span class="${eOk?'stat-val':'stat-warn'}">${enemyTotal}</span> / 16</div>
+    <div>M PANICCO&nbsp;&nbsp;: <span class="${mOk?'stat-val':'stat-warn'}">${cnt['M']}</span> / 1</div>
+    <div>Enemies&nbsp;&nbsp;&nbsp;: <span class="${eOk?'stat-val':'stat-warn'}">${eTotal}</span> / 16</div>
     <hr>
-    <div>A SLIMER&nbsp;&nbsp;: <span class="stat-val">${counts['A']}</span></div>
-    <div>B EBYRINS&nbsp;: <span class="stat-val">${counts['B']}</span></div>
-    <div>C ZAUROID&nbsp;: <span class="stat-val">${counts['C']}</span></div>
-    <div>ｱ SL fall&nbsp;: <span class="stat-val">${counts['fa']}</span></div>
-    <div>ｲ EB fall&nbsp;: <span class="stat-val">${counts['fi']}</span></div>
-    <div>ｳ ZA fall&nbsp;: <span class="stat-val">${counts['fu']}</span></div>
+    <div>A SLIMER&nbsp;&nbsp;: <span class="stat-val">${cnt['A']}</span></div>
+    <div>B EBYRINS&nbsp;: <span class="stat-val">${cnt['B']}</span></div>
+    <div>C ZAUROID&nbsp;: <span class="stat-val">${cnt['C']}</span></div>
+    <div>ｱ SL fall&nbsp;: <span class="stat-val">${cnt['fa']}</span></div>
+    <div>ｲ EB fall&nbsp;: <span class="stat-val">${cnt['fi']}</span></div>
+    <div>ｳ ZA fall&nbsp;: <span class="stat-val">${cnt['fu']}</span></div>
     <hr>
-    <div>1 Block&nbsp;&nbsp;&nbsp;: <span class="stat-val">${counts['1']}</span></div>
-    <div>2 Floor&nbsp;&nbsp;&nbsp;: <span class="stat-val">${counts['2']}</span></div>
-    <div>7 Hole&nbsp;&nbsp;&nbsp;&nbsp;: <span class="stat-val">${counts['7']}</span></div>
-    <div>H Ladder&nbsp;&nbsp;: <span class="stat-val">${counts['H']}</span></div>
-    <div>&nbsp; Road&nbsp;&nbsp;&nbsp;&nbsp;: <span class="stat-val">${counts['space']}</span></div>
+    <div>1 Block&nbsp;&nbsp;&nbsp;: <span class="stat-val">${cnt['1']}</span></div>
+    <div>2 Floor&nbsp;&nbsp;&nbsp;: <span class="stat-val">${cnt['2']}</span></div>
+    <div>7 Hole&nbsp;&nbsp;&nbsp;&nbsp;: <span class="stat-val">${cnt['7']}</span></div>
+    <div>H Ladder&nbsp;&nbsp;: <span class="stat-val">${cnt['H']}</span></div>
+    <div>&nbsp; Road&nbsp;&nbsp;&nbsp;&nbsp;: <span class="stat-val">${cnt['space']}</span></div>
   `;
-
   const warns = validateMap(currentRound);
-  if (warns.length > 0) showWarning(warns.join('\n'));
-  else clearWarnings();
+  warns.length ? showWarning(warns.join('\n')) : clearWarnings();
 }
 
 // ============================================================
 //  ステータス・警告
 // ============================================================
-
 function setStatus(msg) { document.getElementById('statusbar').textContent = msg; }
-
 function showWarning(msg) {
   const el = document.getElementById('warnings');
   el.classList.add('visible');
-  const items = msg.split('\n').filter(l => l.trim());
-  el.innerHTML =
-    '<div class="warn-icon">&#9888;</div>' +
-    '<div class="warn-body">' +
-      '<div class="warn-title">WARNING</div>' +
-      items.map(l => `<div class="warn-item">${l}</div>`).join('') +
-    '</div>';
+  el.innerHTML = '<div class="warn-icon">&#9888;</div><div class="warn-body"><div class="warn-title">WARNING</div>' +
+    msg.split('\n').filter(l => l.trim()).map(l => `<div class="warn-item">${l}</div>`).join('') + '</div>';
 }
 function clearWarnings() {
   const el = document.getElementById('warnings');
-  el.classList.remove('visible');
-  el.innerHTML = '';
+  el.classList.remove('visible'); el.innerHTML = '';
 }
 
 // ============================================================
