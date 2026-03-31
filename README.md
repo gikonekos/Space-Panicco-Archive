@@ -336,6 +336,15 @@ Third-party libraries are used for music-related functionality in the original s
 
 Stage graphics and gameplay data are preserved as part of the original game resources.
 
+### Additional Stage Files
+
+An additional set of stage data (**VMAP033.DAT–VMAP064.DAT**) was assembled using the browser-based **VMAP editor**.  
+Some stages were also verified in an emulator and manually adjusted after testing.
+
+- [VMAP Editor](https://gikonekos.github.io/Space-Panicco-Archive/tools/map-editor/)
+- [Guide](docs/tools/map-editor/README.md)
+- [VMAP033–VMAP064](analysis/work/maps/panicco-33-64.zip)
+
 ---
 
 ## Documentation
