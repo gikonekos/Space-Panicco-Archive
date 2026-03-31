@@ -646,6 +646,7 @@ function makeEmptyGrid() {
 document.getElementById('btn-save').addEventListener('click', () => {
   const warns = [
     ...validateMap(currentRound),
+    ...checkEnemyPlacement(currentRound),
     ...checkGapWarnings(currentRound),
   ];
   if (warns.length > 0) showWarning('Save warnings (file saved anyway):\n' + warns.join('\n'));
@@ -759,6 +760,49 @@ function checkGapWarnings(roundIndex) {
       `Gap warning: ROUND ${list} appears empty before this round.` +
       ' The game will show "not open - VMAPxxx.DAT !!" for missing files.'
     );
+  }
+  return warns;
+}
+
+// 指定セルの真下方向（rowの下側）に着地可能なセルがあるか調べる
+// 着地可能 = '1'（ブロック）/ '2'（床）/ 'H'（はしご）
+function hasLandingBelow(grid, row, col) {
+  const landable = new Set(['1', '2', 'H']);
+  for (let r = row + 1; r < ROWS; r++) {
+    if (landable.has(grid[r][col])) return true;
+    // 空道でない（別の敵など）があれば、その上には着地できない
+    if (grid[r][col] !== 'space') return false;
+  }
+  return false;  // 最下段まで何もない
+}
+
+// 通常敵（A/B/C）の配置が問題ないかチェック
+// 自分の列・左隣列・右隣列のいずれかに着地可能な床があればOK
+function checkEnemyPlacement(roundIndex) {
+  const grid = allMaps[roundIndex].grid;
+  const warns = [];
+  const normalEnemies = new Set(['A', 'B', 'C']);
+  const symName = { 'A': 'SLIMER', 'B': 'EBYRINS', 'C': 'ZAUROID' };
+
+  for (let r = 0; r < ROWS; r++) {
+    for (let c = 0; c < COLS; c++) {
+      const k = grid[r][c];
+      if (!normalEnemies.has(k)) continue;
+
+      // 自分の列・左隣・右隣に着地可能な床があるか
+      const cols = [c];
+      if (c > 0)        cols.push(c - 1);
+      if (c < COLS - 1) cols.push(c + 1);
+
+      const canLand = cols.some(cc => hasLandingBelow(grid, r, cc));
+
+      if (!canLand) {
+        warns.push(
+          `Freeze risk: ${symName[k]} (${k}) at row ${r} col ${c} ` +
+          'has no reachable floor — may cause a freeze.'
+        );
+      }
+    }
   }
   return warns;
 }
