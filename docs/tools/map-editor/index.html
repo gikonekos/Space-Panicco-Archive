@@ -458,11 +458,18 @@ function makeEmptyGrid() { return Array.from({length:ROWS}, () => Array(COLS).fi
 // ============================================================
 document.getElementById('btn-save').addEventListener('click', () => {
   const fname = allMaps[currentRound].filename;
-  if (!confirm(`Save ROUND ${String(currentRound+1).padStart(3,'0')} as ${fname}?`)) {
+  const warns = [...validateMap(currentRound), ...checkEnemyPlacement(currentRound), ...checkGapWarnings(currentRound)];
+
+  let msg = `Save ROUND ${String(currentRound+1).padStart(3,'0')} as ${fname}?`;
+  if (warns.length > 0) {
+    msg += '\n\n⚠ WARNINGS:\n' + warns.map(w => '· ' + w).join('\n') + '\n\nSave anyway?';
+  }
+
+  if (!confirm(msg)) {
     setStatus('Save cancelled.');
     return;
   }
-  const warns = [...validateMap(currentRound), ...checkEnemyPlacement(currentRound), ...checkGapWarnings(currentRound)];
+
   warns.length ? showWarning('Warnings:\n' + warns.join('\n')) : clearWarnings();
   const bytes = buildOutputBytes(currentRound);
   const a = document.createElement('a');
