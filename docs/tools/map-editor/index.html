@@ -457,10 +457,14 @@ function makeEmptyGrid() { return Array.from({length:ROWS}, () => Array(COLS).fi
 //  保存
 // ============================================================
 document.getElementById('btn-save').addEventListener('click', () => {
-  const warns = [...validateMap(currentRound), ...checkEnemyPlacement(currentRound), ...checkGapWarnings(currentRound)];
-  warns.length ? showWarning('Save warnings (file saved anyway):\n' + warns.join('\n')) : clearWarnings();
-  const bytes = buildOutputBytes(currentRound);
   const fname = allMaps[currentRound].filename;
+  if (!confirm(`Save ROUND ${String(currentRound+1).padStart(3,'0')} as ${fname}?`)) {
+    setStatus('Save cancelled.');
+    return;
+  }
+  const warns = [...validateMap(currentRound), ...checkEnemyPlacement(currentRound), ...checkGapWarnings(currentRound)];
+  warns.length ? showWarning('Warnings:\n' + warns.join('\n')) : clearWarnings();
+  const bytes = buildOutputBytes(currentRound);
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([bytes], {type:'application/octet-stream'}));
   a.download = fname; a.click(); URL.revokeObjectURL(a.href);
