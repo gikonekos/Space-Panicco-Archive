@@ -531,21 +531,28 @@ function findLanding(grid, row, col) {
 
 // ============================================================
 //  v1.5 袋小路フリーズ判定
-//  着地セルの左右いずれかに連続 2 マス以上の space があるか
+//  着地行の左右いずれかに連続 2 マス以上の space があるか
+//  enemyRow/enemyCol: 敵自身の座標（着地行と同じ行の場合、敵セルを space 扱いにする）
 // ============================================================
-function hasEscapeRoom(grid, landRow, landCol) {
-  // 左方向: landCol-1 から col=0 に向かって連続 space をカウント
+function hasEscapeRoom(grid, landRow, landCol, enemyRow, enemyCol) {
+  // セルが通行可能か判定（着地行に敵自身がいる場合はその位置を space 扱い）
+  function isOpen(row, col) {
+    if (row === enemyRow && col === enemyCol) return true;  // 敵自身は space 扱い
+    return grid[row][col] === 'space';
+  }
+
+  // 左方向: landCol-1 から col=0 に向かって連続通行可能マスをカウント
   let left = 0;
   for (let c = landCol - 1; c >= 0; c--) {
-    if (grid[landRow][c] === 'space') left++;
+    if (isOpen(landRow, c)) left++;
     else break;
   }
   if (left >= 2) return true;
 
-  // 右方向: landCol+1 から col=COLS-1 に向かって連続 space をカウント
+  // 右方向: landCol+1 から col=COLS-1 に向かって連続通行可能マスをカウント
   let right = 0;
   for (let c = landCol + 1; c < COLS; c++) {
-    if (grid[landRow][c] === 'space') right++;
+    if (isOpen(landRow, c)) right++;
     else break;
   }
   return right >= 2;
@@ -573,7 +580,7 @@ function checkEnemyPlacement(idx) {
       if (!landing) {
         // 着地床なし（v1.4相当）
         warns.push(`Freeze risk: ${name[k]} (${k}) at row ${r} col ${c} — no reachable floor, will freeze.`);
-      } else if (!hasEscapeRoom(grid, landing.landRow, landing.landCol)) {
+      } else if (!hasEscapeRoom(grid, landing.landRow, landing.landCol, r, c)) {
         // 着地できるが袋小路（v1.5新規）
         warns.push(
           `Dead-end freeze: ${name[k]} (${k}) at row ${r} col ${c} — lands at row ${landing.landRow} col ${landing.landCol}` +
