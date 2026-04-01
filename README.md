@@ -112,7 +112,7 @@ All rights to third-party components belong to their respective copyright holder
 For details, see:
 
 - [RIGHTS.md](RIGHTS.md)
-- [RIGHTS_ja.md](RIGHTS_ja.md)
+- [RIGHTS-ja.md](RIGHTS-ja.md)
 - [docs/FREEDOS98-LICENSE-NOTES.md](docs/FREEDOS98-LICENSE-NOTES.md)
 
 ---
@@ -198,7 +198,7 @@ Confirmed working environments include:
 For details, see:
 
 - [Running the Game](docs/Running-the-Game.md)
-- [Running the Game (Japanese)](docs/Running-the-Game_ja.md)
+- [Running the Game (Japanese)](docs/Running-the-Game-ja.md)
 
 ---
 
@@ -251,7 +251,7 @@ Commercial exploitation or repackaging for profit is not the intended purpose of
 This repository may also include analysis and reverse-engineering notes for preservation and research.
 Those materials do not change the copyright status of the original game.
 
-See [RIGHTS.md](RIGHTS.md) and [RIGHTS_ja.md](RIGHTS_ja.md) for details.
+See [RIGHTS.md](RIGHTS.md) and [RIGHTS-ja.md](RIGHTS-ja.md) for details.
 
 ---
 
@@ -312,7 +312,7 @@ Confirmed working environments include:
 For details, see:
 
 - [Running the Game](docs/Running-the-Game.md)
-- [Running the Game (Japanese)](docs/Running-the-Game_ja.md)
+- [Running the Game (Japanese)](docs/Running-the-Game-ja.md)
 
 ---
 
@@ -338,8 +338,8 @@ Stage graphics and gameplay data are preserved as part of the original game reso
 
 ### Additional Stage Files
 
-An additional set of stage data (**VMAP033.DAT–VMAP064.DAT**) was assembled using the browser-based **VMAP editor**.  
-Some stages were also verified in an emulator and manually adjusted after testing.
+AnUsing the browser-based **VMAP Editor**, an additional stage data set (**VMAP033.DAT–VMAP064.DAT**) was assembled.
+All stages were also verified in an emulator, and some stages were manually corrected afterward in a text editor to fix issues found during testing.
 
 - [VMAP Editor](https://gikonekos.github.io/Space-Panicco-Archive/tools/map-editor/)
 - [Guide](docs/tools/map-editor/README.md)
