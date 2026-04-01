@@ -345,6 +345,20 @@ Some stages were also verified in an emulator and manually adjusted after testin
 - [Guide](docs/tools/map-editor/README.md)
 - [VMAP033–VMAP064](analysis/work/maps/panicco-33-64.zip)
 
+### Additional stage setup
+
+To enable the additional stages up to `VMAP064.DAT`, you must also update the maximum round value in `PANIC.DEF`.
+
+Change:
+
+`032; scene max (001-999)`
+
+to:
+
+`064; scene max (001-999)`
+
+`PANIC.DEF` should be edited in **CP932** encoding.
+
 ---
 
 ## Documentation
