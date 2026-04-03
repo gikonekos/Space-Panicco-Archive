@@ -257,7 +257,7 @@ function undo() {
   const snap = undoStack.pop();
   if (snap.round !== currentRound) switchRound(snap.round);
   allMaps[snap.round].grid = snap.grid.map(r => [...r]);
-  refreshGrid(); updateUndoButtons(); setStatus('Undo');
+  refreshGrid(); updateStats(); updateUndoButtons(); setStatus('Undo');
 }
 function redo() {
   if (!redoStack.length) return;
@@ -265,7 +265,7 @@ function redo() {
   const snap = redoStack.pop();
   if (snap.round !== currentRound) switchRound(snap.round);
   allMaps[snap.round].grid = snap.grid.map(r => [...r]);
-  refreshGrid(); updateUndoButtons(); setStatus('Redo');
+  refreshGrid(); updateStats(); updateUndoButtons(); setStatus('Redo');
 }
 function updateUndoButtons() {
   ['btn-undo','btn-redo'].forEach((id, i) => {
