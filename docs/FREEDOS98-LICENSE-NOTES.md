@@ -43,4 +43,4 @@ They remain under their own license terms and their respective copyright holders
 For the repository-wide rights summary, see:
 
 - [../RIGHTS.md](../RIGHTS.md)
-- [../RIGHTS_ja.md](../RIGHTS_ja.md)
+- [../RIGHTS-ja.md](../RIGHTS-ja.md)

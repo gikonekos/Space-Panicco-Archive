@@ -57,7 +57,7 @@ environment/fd98_2hd_p24.img
 
 同梱環境のライセンス関連メモについては、以下を参照してください。
 
-- [FREEDOS98-LICENSE-NOTES_ja.md](FREEDOS98-LICENSE-NOTES_ja.md)
+- [FREEDOS98-LICENSE-NOTES-ja.md](FREEDOS98-LICENSE-NOTES-ja.md)
 
 ---
 
