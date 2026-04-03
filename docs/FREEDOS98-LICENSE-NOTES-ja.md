@@ -43,4 +43,4 @@
 リポジトリ全体の権利整理については、以下を参照してください。
 
 - [../RIGHTS.md](../RIGHTS.md)
-- [../RIGHTS_ja.md](../RIGHTS_ja.md)
+- [../RIGHTS-ja.md](../RIGHTS-ja.md)

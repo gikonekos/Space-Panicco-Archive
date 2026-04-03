@@ -388,7 +388,7 @@ Commercial exploitation or repackaging for profit is not the intended purpose of
 This repository may also include analysis and reverse-engineering notes for preservation and research.
 Those materials do not change the copyright status of the original game.
 
-See [RIGHTS.md](RIGHTS.md) and [RIGHTS_ja.md](RIGHTS_ja.md) for details.
+See [RIGHTS.md](RIGHTS.md) and [RIGHTS-ja.md](RIGHTS-ja.md) for details.
 
 ---
 
