@@ -147,7 +147,7 @@ The archived materials in this repository preserve that historical release and r
 
 A preserved copy is also available at:
 
-- [Internet Archive](https://archive.org/details/space-panicco)
+- [Internet Archive](https://archive.org/details/space-panicco-archive-main)
 
 ---
 
