@@ -135,12 +135,16 @@ A preserved copy is also available at:
 
 ## Repository Structure
 
-- `original/` — original distributed archive files and disk images
-- `extracted/` — extracted contents from the original archives
-- `docs/` — documentation, manuals, license notes, and related notes
-- `screenshots/` — screenshots of the game
-- `environment/` — emulator and execution environment files and notes
-- `analysis/` — preservation-oriented analysis and reverse-engineering notes
+| Path | Description |
+|------|-------------|
+| `original/` | Original distribution disk image and archive (`panic24.hdm`, `panic24.zip`) |
+| `extracted/` | Files extracted from the original distribution (EXE, VMAP data, docs, etc.) |
+| `screenshots/` | Gameplay screenshots on PC-98 emulators |
+| `docs/` | Manuals, technical notes, running instructions |
+| `docs/tools/map-editor/` | Browser-based VMAP editor (also on [GitHub Pages](https://gikonekos.github.io/Space-Panicco-Archive/tools/map-editor/)) |
+| `analysis/` | Technical analysis (BGM system, source structure, licensing) |
+| `environment/` | FreeDOS(98)-based boot image for testing |
+| `RIGHTS.md` / `RIGHTS-ja.md` | Rights and licensing notes |
 
 ---
 
