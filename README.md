@@ -12,6 +12,24 @@ disk images, and related execution environments of the game for historical and a
 
 ---
 
+
+## Quick Start
+
+| Goal | Go here |
+|------|---------|
+| **Play the game** | [Running the Game](docs/Running-the-Game.md) · [日本語](docs/Running-the-Game-ja.md) |
+| **Browse original files** | [`original/`](original/) (disk image) · [`extracted/`](extracted/) (unpacked) |
+| **Edit stage maps** | [VMAP Editor (browser)](https://gikonekos.github.io/Space-Panicco-Archive/tools/map-editor/) · [How to use](docs/tools/map-editor/README.md) |
+| **Technical analysis** | [`analysis/`](analysis/) |
+| **Rights / licensing** | [RIGHTS.md](RIGHTS.md) · [RIGHTS-ja.md](RIGHTS-ja.md) |
+
+**Related archives**
+
+- [PLAY3 Archive](https://github.com/gikonekos/PLAY3-Archive) — buzzer music driver; *Bottakuri Shouten* from PLAY3 is used as BGM in this game
+- [Building Rescue Archive](https://github.com/gikonekos/Building-Rescue-Archive) — PC-E500 action game by the same author circle
+
+---
+
 ## Screenshots
 
 | Round 1 | Round 2 |
