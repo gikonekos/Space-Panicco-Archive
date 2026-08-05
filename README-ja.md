@@ -149,7 +149,7 @@ Space Panicco は、**Space Panic に着想を得たプラットフォームア�
 
 保存されたコピーは、以下でも公開しています。
 
-- [Internet Archive](https://archive.org/details/space-panicco)
+- [Internet Archive](https://archive.org/details/space-panicco-archive-main)
 
 ---
 
