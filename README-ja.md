@@ -12,6 +12,23 @@ PC-98用アクションゲーム
 
 ---
 
+
+## クイックスタート
+
+| 目的 | 行き先 |
+|------|--------|
+| **ゲームを動かしたい** | [実行方法](docs/Running-the-Game-ja.md) · [English](docs/Running-the-Game.md) |
+| **オリジナルを確認したい** | [`original/`](original/)（ディスクイメージ） · [`extracted/`](extracted/)（展開済み） |
+| **マップを編集したい** | [VMAP Editor（ブラウザ）](https://gikonekos.github.io/Space-Panicco-Archive/tools/map-editor/) · [使い方](docs/tools/map-editor/README-ja.md) |
+| **技術解析を見たい** | [`analysis/`](analysis/) |
+| **権利・ライセンス** | [RIGHTS-ja.md](RIGHTS-ja.md) · [RIGHTS.md](RIGHTS.md) |
+
+**関連アーカイブ**
+
+- [PLAY3 Archive](https://github.com/gikonekos/PLAY3-Archive) — ブザー音楽ドライバ。本作BGMの「ぼったくり商店」はPLAY3由来
+- [Building Rescue Archive](https://github.com/gikonekos/Building-Rescue-Archive) — 同じ作者圏のPC-E500用アクションゲーム
+
+---
 ## スクリーンショット
 
 | Round 1 | Round 2 |
