@@ -138,12 +138,16 @@ Space Panicco は、**Space Panic に着想を得たプラットフォームア�
 
 ## リポジトリ構成
 
-- `original/` — 当時の配布アーカイブファイルおよびディスクイメージ
-- `extracted/` — 元アーカイブから展開した内容
-- `docs/` — ドキュメント、マニュアル、ライセンス注記、関連メモ
-- `screenshots/` — ゲームのスクリーンショット
-- `environment/` — エミュレータおよび実行環境関連ファイルとメモ
-- `analysis/` — 保存・解析・リバースエンジニアリング関連メモ
+| パス | 内容 |
+|------|------|
+| `original/` | 当時の配布ディスクイメージとアーカイブ（`panic24.hdm`, `panic24.zip`） |
+| `extracted/` | 配布物から展開したファイル（EXE、VMAPデータ、ドキュメントなど） |
+| `screenshots/` | PC-98エミュレータ上でのプレイ画面 |
+| `docs/` | マニュアル、技術メモ、実行方法 |
+| `docs/tools/map-editor/` | ブラウザベースのVMAPエディタ（[GitHub Pages](https://gikonekos.github.io/Space-Panicco-Archive/tools/map-editor/) でも公開） |
+| `analysis/` | 技術分析（BGMシステム、ソース構造、ライセンス調査） |
+| `environment/` | テスト用 FreeDOS(98) ベースの起動イメージ |
+| `RIGHTS.md` / `RIGHTS-ja.md` | 権利・ライセンスに関するメモ |
 
 ---
 
